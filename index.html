@@ -4,922 +4,852 @@
   <meta charset="UTF-8" />
   <title>Amir Taqieddin – Materials Informatics & Electrochemical Systems</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Amir Taqieddin, PhD – Materials Informatics Scientist with 1.3k+ citations across solid-state batteries, electrochemical water treatment, ocean-based CO2 sequestration, and AI for materials and energy systems." />
+  <meta name="description" content="Amir Taqieddin, PhD – Materials Informatics Scientist at Solid Power with 20+ publications and 1.3k+ citations across solid-state batteries, electrochemical water treatment, ocean-based CO2 sequestration, nanofluidics, and AI for materials and energy systems." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Base styles with dark theme */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.7;
-      color: #e5e7eb;
-      background: linear-gradient(135deg, #0a1628 0%, #162240 100%);
-      background-attachment: fixed;
-    }
-
-    /* Color palette from research statement */
-    :root {
-      --navy-deep: #062A77;
-      --navy-soft: #343F66;
-      --taupe: #625355;
-      --brown-warm: #916844;
-      --amber: #BF7C33;
-      --orange: #ED9122;
-      --navy-soft-bg: rgba(52, 63, 102, 0.15);
-      --orange-soft-bg: rgba(237, 145, 34, 0.1);
-      --card-bg: rgba(15, 23, 42, 0.85);
-      --card-hover: rgba(25, 33, 52, 0.95);
-    }
-
-    /* Layout helpers */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Animated background particles */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background: var(--orange);
-      border-radius: 50%;
-      opacity: 0;
-      animation: float 20s infinite ease-in-out;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) translateX(0) scale(1);
-        opacity: 0;
-      }
-      10%, 90% {
-        opacity: 0.4;
-      }
-      50% {
-        transform: translateY(50vh) translateX(50px) scale(1.2);
-      }
-      100% {
-        transform: translateY(0) translateX(100px) scale(1);
-        opacity: 0;
-      }
-    }
-
-
-    /* Header & navigation */
-    .site-header {
-      background: rgba(6, 42, 119, 0.95);
-      backdrop-filter: blur(10px);
-      color: #f9fafb;
-      padding: 1.5rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 2px solid var(--orange);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-
-    .branding {
-      flex: 1;
-    }
-
-    .branding .name {
-      font-size: 2rem;
-      margin: 0 0 0.3rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #ffffff 0%, var(--orange) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .branding .tagline {
-      margin: 0;
-      font-size: 1rem;
-      opacity: 0.95;
-      color: var(--orange);
-      font-weight: 500;
-    }
-
-    .branding .affiliation {
-      margin: 0.3rem 0 0;
-      font-size: 0.9rem;
-      opacity: 0.85;
-      color: #d1d5db;
-    }
-
-    .site-nav {
-      position: relative;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      color: #e5e7eb;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--orange);
-      background: var(--orange-soft-bg);
-      transform: translateY(-2px);
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 2px;
-      background: var(--orange);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 80%;
-    }
-
-    /* Mobile nav toggle */
-    .nav-toggle {
-      display: none;
-      background: var(--navy-deep);
-      border: 2px solid var(--orange);
-      border-radius: 8px;
-      color: #e5e7eb;
-      font-size: 1.2rem;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .nav-toggle:hover {
-      background: var(--orange);
-      color: var(--navy-deep);
-    }
-
-    /* Hero section */
-    .hero {
-      position: relative;
-      padding: 6rem 0 4rem;
-      text-align: center;
-      background: linear-gradient(135deg, rgba(6, 42, 119, 0.4) 0%, rgba(52, 63, 102, 0.3) 100%);
-      border-bottom: 3px solid var(--orange);
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="%23ED9122" opacity="0.1"/></svg>');
-      background-size: 50px 50px;
-      opacity: 0.3;
-      z-index: 0;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      margin: 0 0 1rem;
-      background: linear-gradient(135deg, #ffffff 0%, var(--orange) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 800;
-    }
-
-    .hero .subtitle {
-      font-size: 1.4rem;
-      color: var(--orange);
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .hero .description {
-      font-size: 1.1rem;
-      color: #d1d5db;
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      line-height: 1.8;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--orange) 0%, var(--amber) 100%);
-      color: #0a1628;
-      box-shadow: 0 4px 15px rgba(237, 145, 34, 0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(237, 145, 34, 0.6);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--orange);
-      border: 2px solid var(--orange);
-    }
-
-    .btn-secondary:hover {
-      background: var(--orange);
-      color: var(--navy-deep);
-      transform: translateY(-3px);
-    }
-
-    /* Sections */
-    .section {
-      position: relative;
-      padding: 5rem 0;
-      z-index: 1;
-    }
-
-    .section-alt {
-      background: linear-gradient(135deg, rgba(6, 42, 119, 0.2) 0%, rgba(15, 23, 42, 0.3) 100%);
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-header h2 {
-      font-size: 2.5rem;
-      margin: 0 auto 1rem;
-      color: #ffffff;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-header h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--orange) 0%, var(--amber) 100%);
-      border-radius: 2px;
-    }
-
-    .section-header p {
-      font-size: 1.1rem;
-      color: #d1d5db;
-      max-width: 800px;
-      margin: 1.5rem auto 0;
-    }
-
-    /* Icon boxes */
-    .icon-box {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .icon-box-icon {
-      flex-shrink: 0;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--orange) 0%, var(--amber) 100%);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: #0a1628;
-      box-shadow: 0 4px 15px rgba(237, 145, 34, 0.3);
-    }
-
-    .icon-box-content h3 {
-      margin: 0 0 0.5rem;
-      color: var(--orange);
-      font-size: 1.3rem;
-    }
-
-    .icon-box-content p {
-      margin: 0;
-      color: #d1d5db;
-    }
-
-    /* Cards */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 2rem;
-      border: 1px solid rgba(237, 145, 34, 0.2);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--orange) 0%, var(--amber) 100%);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      background: var(--card-hover);
-      border-color: var(--orange);
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(237, 145, 34, 0.3);
-    }
-
-    .card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .card-icon {
-      font-size: 2.5rem;
-      color: var(--orange);
-      margin-bottom: 1rem;
-    }
-
-    .card h3 {
-      font-size: 1.4rem;
-      margin: 0 0 1rem;
-      color: #ffffff;
-    }
-
-    .card p {
-      color: #d1d5db;
-      margin-bottom: 1rem;
-      line-height: 1.7;
-    }
-
-    .card ul {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0;
-    }
-
-    .card ul li {
-      color: #d1d5db;
-      padding: 0.4rem 0;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .card ul li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--orange);
-      font-weight: bold;
-    }
-
-    /* Collaboration notes on research cards */
-    .collab-note {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: #9ca3af;
-      font-style: italic;
-    }
-
-    /* Research flow diagram */
-    .research-flow {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      margin: 3rem 0;
-      flex-wrap: wrap;
-    }
-
-    .flow-item {
-      flex: 1;
-      min-width: 200px;
-      text-align: center;
-      padding: 2rem 1.5rem;
-      background: var(--card-bg);
-      border-radius: 16px;
-      border: 2px solid rgba(237, 145, 34, 0.3);
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    .flow-item:hover {
-      border-color: var(--orange);
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(237, 145, 34, 0.4);
-    }
-
-    .flow-item .flow-icon {
-      font-size: 3rem;
-      color: var(--orange);
-      margin-bottom: 1rem;
-    }
-
-    .flow-item h4 {
-      font-size: 1.1rem;
-      color: #ffffff;
-      margin: 0.5rem 0;
-    }
-
-    .flow-item p {
-      font-size: 0.9rem;
-      color: #d1d5db;
-      margin: 0;
-    }
-
-    .flow-arrow {
-      color: var(--orange);
-      font-size: 2rem;
-    }
-
-    /* Publications & Patents */
-    .pub-item {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 12px;
-      border-left: 4px solid var(--orange);
-      margin-bottom: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .pub-item:hover {
-      background: var(--card-hover);
-      transform: translateX(8px);
-      box-shadow: 0 4px 20px rgba(237, 145, 34, 0.2);
-    }
-
-    .pub-authors {
-      margin: 0 0 0.5rem;
-      font-size: 0.95rem;
-      color: #d1d5db;
-    }
-    
-    .pub-authors strong {
-      color: var(--orange);
-      font-weight: 600;
-    }
-
-    .pub-title {
-      margin: 0 0 0.5rem;
-      color: #ffffff;
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-    
-    .pub-title-link {
-        color: #ffffff;
-        text-decoration: none;
-    }
-    
-    .pub-title-link:hover {
-        text-decoration: underline;
-        color: var(--orange);
-    }
-
-    .pub-venue {
-      margin: 0 0 0.5rem;
-      font-size: 0.9rem;
-      color: var(--orange);
-      font-style: italic;
-    }
-    
-    .pub-status {
-      font-size: 0.9rem;
-      color: #9ca3af;
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .pub-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    .pub-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.9rem;
-      color: var(--amber);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .pub-links a:hover {
-      color: var(--orange);
-      text-decoration: underline;
-    }
-
-    /* Stats section */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .stat-item {
-      text-align: center;
-      padding: 2rem;
-      background: var(--card-bg);
-      border-radius: 16px;
-      border: 2px solid rgba(237, 145, 34, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .stat-item:hover {
-      border-color: var(--orange);
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(237, 145, 34, 0.3);
-    }
-
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--orange) 0%, var(--amber) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin: 0;
-    }
-
-    .stat-label {
-      font-size: 1rem;
-      color: #d1d5db;
-      margin: 0.5rem 0 0;
-    }
-
-    /* Two column layout */
-    .two-column {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 3rem;
-      align-items: flex-start;
-    }
-
-    .highlight-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 2rem;
-      border: 2px solid rgba(237, 145, 34, 0.3);
-      position: sticky;
-      top: 100px; /* Adjust based on header height */
-    }
-
-    .highlight-card h3 {
-      color: var(--orange);
-      font-size: 1.3rem;
-      margin: 0 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid rgba(237, 145, 34, 0.3);
-    }
-
-    .highlight-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .highlight-card ul li {
-      color: #d1d5db;
-      padding: 0.5rem 0;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .highlight-card ul li::before {
-      content: '●';
-      position: absolute;
-      left: 0;
-      color: var(--orange);
-    }
-
-    .highlight-card a {
-      color: var(--amber);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .highlight-card a:hover {
-      color: var(--orange);
-      text-decoration: underline;
-    }
-
-    /* Teaching & Media */
-    .timeline-item {
-        position: relative;
-        padding-left: 2.5rem;
-        padding-bottom: 2rem;
-        border-left: 3px solid rgba(237, 145, 34, 0.3);
-    }
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: -11px;
-        top: 0;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: var(--orange);
-        border: 3px solid #0a1628;
-    }
-    .timeline-item h3 {
-        color: #ffffff;
-        margin: 0 0 0.3rem;
-    }
-    .timeline-item .role {
-        color: var(--orange);
-        font-weight: 600;
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-    }
-    .timeline-item p {
-        color: #d1d5db;
-        margin: 0;
-    }
-
-    /* Contact links */
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--card-bg);
-      border: 2px solid rgba(237, 145, 34, 0.3);
-      border-radius: 50px;
-      color: #d1d5db;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
-    }
-
-    .contact-link:hover {
-      background: var(--orange);
-      color: var(--navy-deep);
-      border-color: var(--orange);
-      transform: translateY(-3px);
-      box-shadow: 0 4px 15px rgba(237, 145, 34, 0.4);
-    }
-
-    /* Footer */
-    .site-footer {
-      background: rgba(6, 42, 119, 0.95);
-      color: #d1d5db;
-      padding: 3rem 0 1.5rem;
-      border-top: 3px solid var(--orange);
-      margin-top: 4rem;
-      position: relative;
-      z-index: 10;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-section h4 {
-      color: var(--orange);
-      margin: 0 0 1rem;
-      font-size: 1.2rem;
-    }
-
-    .footer-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .footer-section ul li {
-      margin: 0.5rem 0;
-    }
-
-    .footer-section a {
-      color: #d1d5db;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-section a:hover {
-      color: var(--orange);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(237, 145, 34, 0.2);
-      color: #9ca3af;
-    }
-
-    /* Responsive design */
-    @media (max-width: 968px) {
-      .two-column {
-        grid-template-columns: 1fr;
-      }
-      
-      .highlight-card {
-        position: static;
-      }
-      
-      .research-flow {
-        flex-direction: column;
-      }
-      
-      .flow-arrow {
-        transform: rotate(90deg);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .hero .subtitle {
-        font-size: 1.1rem;
-      }
-      
-      .hero .description {
-        font-size: 1rem;
-      }
-      
-      .header-inner {
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-      
-      .branding {
-        width: 100%;
-      }
-      
-      .site-nav {
-        flex-basis: 100%;
-        display: flex;
-        justify-content: flex-end;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-toggle {
-        display: inline-block;
-        position: absolute;
-        top: 2.2rem;
-        right: 0rem;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: rgba(6, 42, 119, 0.98);
-        position: absolute;
-        top: 6rem;
-        right: 0;
-        padding: 1rem;
-        border-radius: 12px;
-        border: 2px solid var(--orange);
-        min-width: 200px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-      }
-
-      .nav-links.nav-open {
-        display: flex;
-      }
-      
-      .cta-buttons {
-        flex-direction: column;
-      }
-      
-      .section {
-        padding: 3rem 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 1rem;
-      }
-      
-      .branding .name {
-        font-size: 1.5rem;
-      }
-      
-      .hero h1 {
-        font-size: 2rem;
-      }
-      
-      .section-header h2 {
-        font-size: 2rem;
-      }
-      
-      .nav-toggle {
-        top: 2.2rem;
-        right: 1rem;
-      }
-      
-      .nav-links {
-        top: 6rem;
-        right: 1rem;
-        width: calc(100vw - 2rem);
-      }
-    }
+/* Base styles with dark theme */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
+  color: #e5e7eb;
+  background: linear-gradient(135deg, #0a1628 0%, #162240 100%);
+  background-attachment: fixed;
+}
+
+/* Color palette from research statement */
+:root {
+  --navy-deep: #062A77;
+  --navy-soft: #343F66;
+  --taupe: #625355;
+  --brown-warm: #916844;
+  --amber: #BF7C33;
+  --orange: #ED9122;
+  --navy-soft-bg: rgba(52, 63, 102, 0.15);
+  --orange-soft-bg: rgba(237, 145, 34, 0.1);
+  --card-bg: rgba(15, 23, 42, 0.85);
+  --card-hover: rgba(25, 33, 52, 0.95);
+}
+
+/* Layout helpers */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Animated background particles */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--orange);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 20s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-100px) translateX(50px); }
+  50% { transform: translateY(-200px) translateX(-30px); }
+  75% { transform: translateY(-100px) translateX(-60px); }
+}
+
+/* Header & navigation */
+.site-header {
+  background: rgba(6, 42, 119, 0.95);
+  backdrop-filter: blur(10px);
+  color: #f9fafb;
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--orange);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.branding {
+  flex: 1;
+}
+
+.branding .name {
+  font-size: 2rem;
+  margin: 0 0 0.3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, var(--orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.branding .tagline {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.95;
+  color: var(--orange);
+  font-weight: 500;
+}
+
+.branding .affiliation {
+  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  color: #d1d5db;
+}
+
+.site-nav {
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--orange);
+  background: var(--orange-soft-bg);
+  transform: translateY(-2px);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--orange);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 80%;
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  background: var(--navy-deep);
+  border: 2px solid var(--orange);
+  border-radius: 8px;
+  color: #e5e7eb;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle:hover {
+  background: var(--orange);
+  color: var(--navy-deep);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  padding: 6rem 0 4rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(6, 42, 119, 0.4) 0%, rgba(52, 63, 102, 0.3) 100%);
+  border-bottom: 3px solid var(--orange);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="%23ED9122" opacity="0.1"/></svg>');
+  background-size: 50px 50px;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin: 0 0 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, var(--orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.hero .subtitle {
+  font-size: 1.4rem;
+  color: var(--orange);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.hero .description {
+  font-size: 1.1rem;
+  color: #d1d5db;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--orange) 0%, var(--amber) 100%);
+  color: #0a1628;
+  box-shadow: 0 4px 15px rgba(237, 145, 34, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(237, 145, 34, 0.6);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--orange);
+  border: 2px solid var(--orange);
+}
+
+.btn-secondary:hover {
+  background: var(--orange);
+  color: var(--navy-deep);
+  transform: translateY(-3px);
+}
+
+/* Sections */
+.section {
+  position: relative;
+  padding: 5rem 0;
+  z-index: 1;
+}
+
+.section-alt {
+  background: linear-gradient(135deg, rgba(6, 42, 119, 0.2) 0%, rgba(15, 23, 42, 0.3) 100%);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  margin: 0 auto 1rem;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--orange) 0%, var(--amber) 100%);
+  border-radius: 2px;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: #d1d5db;
+  max-width: 800px;
+  margin: 1.5rem auto 0;
+}
+
+/* Icon boxes */
+.icon-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.icon-box-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--orange) 0%, var(--amber) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #0a1628;
+  box-shadow: 0 4px 15px rgba(237, 145, 34, 0.3);
+}
+
+.icon-box-content h3 {
+  margin: 0 0 0.5rem;
+  color: var(--orange);
+  font-size: 1.3rem;
+}
+
+.icon-box-content p {
+  margin: 0;
+  color: #d1d5db;
+}
+
+/* Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(237, 145, 34, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--orange) 0%, var(--amber) 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  background: var(--card-hover);
+  border-color: var(--orange);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(237, 145, 34, 0.3);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin: 0 0 1rem;
+  color: #ffffff;
+}
+
+.card p {
+  color: #d1d5db;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.card ul li {
+  color: #d1d5db;
+  padding: 0.4rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.card ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-weight: bold;
+}
+
+/* Collaboration notes on research cards */
+.collab-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Research flow diagram */
+.research-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+.flow-item {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 2px solid rgba(237, 145, 34, 0.3);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.flow-item:hover {
+  border-color: var(--orange);
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(237, 145, 34, 0.4);
+}
+
+.flow-item .flow-icon {
+  font-size: 3rem;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+.flow-item h4 {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin: 0.5rem 0;
+}
+
+.flow-item p {
+  font-size: 0.9rem;
+  color: #d1d5db;
+  margin: 0;
+}
+
+.flow-arrow {
+  color: var(--orange);
+  font-size: 2rem;
+}
+
+/* Publications */
+.pub-item {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--orange);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.pub-item:hover {
+  background: var(--card-hover);
+  transform: translateX(8px);
+  box-shadow: 0 4px 20px rgba(237, 145, 34, 0.2);
+}
+
+.pub-authors {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  color: #d1d5db;
+}
+
+.pub-title {
+  margin: 0 0 0.5rem;
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.pub-venue {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--orange);
+  font-style: italic;
+}
+
+.pub-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.pub-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--amber);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.pub-links a:hover {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+/* Stats section */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 2px solid rgba(237, 145, 34, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  border-color: var(--orange);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(237, 145, 34, 0.3);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--orange) 0%, var(--amber) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #d1d5db;
+  margin: 0.5rem 0 0;
+}
+
+/* Two column layout */
+.two-column {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.highlight-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 2px solid rgba(237, 145, 34, 0.3);
+  position: sticky;
+  top: 100px;
+}
+
+.highlight-card h3 {
+  color: var(--orange);
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(237, 145, 34, 0.3);
+}
+
+.highlight-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlight-card ul li {
+  color: #d1d5db;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.highlight-card ul li::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+}
+
+.highlight-card a {
+  color: var(--amber);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.highlight-card a:hover {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+/* Media section intro */
+.media-intro {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  color: #d1d5db;
+  text-align: center;
+}
+
+/* Contact links */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--card-bg);
+  border: 2px solid rgba(237, 145, 34, 0.3);
+  border-radius: 50px;
+  color: #d1d5db;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  background: var(--orange);
+  color: var(--navy-deep);
+  border-color: var(--orange);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(237, 145, 34, 0.4);
+}
+
+/* Footer */
+.site-footer {
+  background: rgba(6, 42, 119, 0.95);
+  color: #d1d5db;
+  padding: 3rem 0 1.5rem;
+  border-top: 3px solid var(--orange);
+  margin-top: 4rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+  color: var(--orange);
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin: 0.5rem 0;
+}
+
+.footer-section a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: var(--orange);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(237, 145, 34, 0.2);
+  color: #9ca3af;
+}
+
+/* Responsive design */
+@media (max-width: 968px) {
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+  
+  .highlight-card {
+    position: static;
+  }
+  
+  .research-flow {
+    flex-direction: column;
+  }
+  
+  .flow-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero .description {
+    font-size: 1rem;
+  }
+  
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(6, 42, 119, 0.98);
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 2px solid var(--orange);
+    min-width: 200px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .branding .name {
+    font-size: 1.5rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Scroll animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
   </style>
 </head>
 <body>
+  <!-- Animated particles background -->
   <div class="particles" id="particles"></div>
 
   <header class="site-header">
@@ -940,7 +870,6 @@
           <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
           <li><a href="#research"><i class="fas fa-flask"></i> Research</a></li>
           <li><a href="#publications"><i class="fas fa-file-alt"></i> Publications</a></li>
-          <li><a href="#patents"><i class="fas fa-lightbulb"></i> Patents</a></li>
           <li><a href="#media"><i class="fas fa-video"></i> Media</a></li>
           <li><a href="#teaching"><i class="fas fa-chalkboard-teacher"></i> Teaching</a></li>
           <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
@@ -949,6 +878,7 @@
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-content">
       <h1>Multiscale Computation for Energy &amp; Materials</h1>
@@ -965,7 +895,7 @@
         <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" class="btn btn-secondary">
           <i class="fas fa-graduation-cap"></i> View Publications
         </a>
-        <a href="#contact" class.btn .btn-secondary>
+        <a href="#contact" class="btn btn-secondary">
           <i class="fas fa-handshake"></i> Collaborate
         </a>
       </div>
@@ -973,6 +903,7 @@
   </section>
 
   <main>
+    <!-- ABOUT -->
     <section id="about" class="section">
       <div class="container">
         <div class="section-header">
@@ -990,8 +921,8 @@
                 <h3>Current Position</h3>
                 <p>
                   <strong>Materials Informatics Scientist</strong> at Solid Power Operating Inc., leading AI-driven
-                  digital twins and multiscale simulations for next-generation solid-state batteries.
-                  Previously, I was a <strong>Computational Research Scientist</strong> at Nissan’s Advanced Technology Center – Silicon Valley, where I
+                  digital twins and multiscale simulations for next-generation solid-state and lithium-ion batteries.
+                  Previously, I was a researcher at Nissan’s Advanced Technology Center – Silicon Valley, where I
                   worked on materials informatics and battery management systems for electric vehicles.
                 </p>
               </div>
@@ -1004,9 +935,11 @@
               <div class="icon-box-content">
                 <h3>Academic Background</h3>
                 <p>
-                  <strong>PhD & MSc in Mechanical &amp; Industrial Engineering</strong> from Northeastern University (GPA 4.0/4.0), where my
-                  dissertation developed multiscale computational frameworks for electrochemical water treatment and ocean-based CO₂ removal.
-                  My <strong>BSc in Mechanical Engineering</strong> was from Jordan University of Science & Technology (Ranked 1st/128).
+                  <strong>PhD in Mechanical &amp; Industrial Engineering</strong> from Northeastern University, where my
+                  dissertation developed multiscale computational frameworks for carbon- and iron-based materials in
+                  electrochemical water treatment and ocean-based CO₂ removal. Prior work at the University of Illinois
+                  at Urbana–Champaign focused on nanofluidics, interfacial transport, and 2D materials including 
+                  graphene biosensors.
                 </p>
               </div>
             </div>
@@ -1021,7 +954,8 @@
                   My research integrates <strong>multiscale physics-based modeling, machine learning, 
                   and materials informatics</strong> to solve critical challenges in energy storage, water treatment, 
                   and climate technologies. I develop computational frameworks that connect molecular-scale phenomena 
-                  to device- and system-level performance, enabling predictive design and optimization.
+                  to device- and system-level performance, enabling predictive design and optimization—from ocean 
+                  carbon removal reactors to solid-state batteries.
                 </p>
               </div>
             </div>
@@ -1030,11 +964,11 @@
           <aside class="highlight-card">
             <h3><i class="fas fa-star"></i> Key Highlights</h3>
             <ul>
-              <li><strong>1,370+</strong> citations &amp; <strong>h-index: 11</strong></li>
-              <li><strong>19+</strong> peer-reviewed publications</li>
-              <li>Co-author on <em>Nature Communications</em>, <em>Nature Electronics</em>, &amp; <em>ACS Nano</em></li>
-              <li>Industry R&D at Solid Power &amp; Nissan ATC</li>
-              <li><strong>5</strong> patents &amp; applications filed</li>
+              <li><strong>1,300+</strong> citations &amp; <strong>20</strong> peer-reviewed publications</li>
+              <li>Lead author in <em>npj Ocean Sustainability</em>, <em>ACS ES&amp;T Water</em>, and <em>Catalysts</em></li>
+              <li>Co-author on <em>Nature Communications</em>, <em>ACS Nano</em>, and MDPI <em>Fluids</em></li>
+              <li>Industry experience at Nissan ATC &amp; Solid Power</li>
+              <li>Co-inventor on an AI-enabled vehicle battery management system patent application</li>
             </ul>
 
             <h3 style="margin-top: 2rem;"><i class="fas fa-microscope"></i> Expertise</h3>
@@ -1051,34 +985,35 @@
               <li><a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
               <li><a href="https://github.com/amirtaqiSP" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
               <li><a href="https://www.linkedin.com/in/amirtaqi" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-              <li><a href="https://www.researchgate.net/profile/Amir-Taqieddin" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a></li>
-              <li><a href="https://protect.sites.northeastern.edu/" target="_blank"><i class="fas fa-tint"></i> PROTECT Center</a></li>
-              <li><a href="https://exo-is.org/" target="_blank"><i class="fas fa-globe-americas"></i> ExOIS Initiative</a></li>
+              <li><a href="https://orcid.org/0000-0002-5743-7110" target="_blank"><i class="fab fa-orcid"></i> ORCID</a></li>
+              <li><a href="https://www.youtube.com/@AmirTaqieddin" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
             </ul>
           </aside>
         </div>
 
+        <!-- Stats -->
         <div class="stats">
           <div class="stat-item">
-            <div class="stat-number">1,370+</div>
+            <div class="stat-number">1.3k+</div>
             <div class="stat-label">Citations</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">11</div>
-            <div class="stat-label">h-index</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">19+</div>
+            <div class="stat-number">20</div>
             <div class="stat-label">Publications</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">5</div>
-            <div class="stat-label">Patents & Applications</div>
+            <div class="stat-number">4</div>
+            <div class="stat-label">Core Research Domains</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Cross-disciplinary Collaborations</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- RESEARCH -->
     <section id="research" class="section section-alt">
       <div class="container">
         <div class="section-header">
@@ -1086,6 +1021,7 @@
           <p>Multiscale ML and computation for electrochemical materials, batteries, and reactors</p>
         </div>
 
+        <!-- Research Flow -->
         <div class="research-flow">
           <div class="flow-item">
             <div class="flow-icon"><i class="fas fa-atom"></i></div>
@@ -1233,186 +1169,526 @@
             </p>
           </article>
         </div>
+
+        <!-- Research Vision Box -->
+        <div style="margin-top: 4rem; background: var(--card-bg); border-radius: 16px; padding: 3rem; border: 2px solid var(--orange);">
+          <h3 style="color: var(--orange); text-align: center; font-size: 1.8rem; margin-bottom: 1.5rem;">
+            <i class="fas fa-lightbulb"></i> Research Philosophy
+          </h3>
+          <p style="text-align: center; font-size: 1.1rem; color: #d1d5db; max-width: 900px; margin: 0 auto 2rem; line-height: 1.8;">
+            Building computational frameworks that integrate <strong>multiscale physics-based modeling</strong> and 
+            <strong>data-driven machine learning</strong> to enable both forward performance prediction and inverse, 
+            target-driven design of electrochemical materials, devices, and processes for sustainable energy and 
+            environmental applications — from ROS-generating activated carbon electrodes and ocean iron fertilization 
+            reactors to AI-designed solid-state batteries.
+          </p>
+          <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; color: var(--orange); margin-bottom: 0.5rem;"><i class="fas fa-atom"></i></div>
+              <div style="color: #ffffff; font-weight: 600;">Mechanistic</div>
+              <div style="color: #d1d5db; font-size: 0.9rem;">Physics-first approach</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; color: var(--orange); margin-bottom: 0.5rem;"><i class="fas fa-database"></i></div>
+              <div style="color: #ffffff; font-weight: 600;">Data-Driven</div>
+              <div style="color: #d1d5db; font-size: 0.9rem;">ML-accelerated design</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; color: var(--orange); margin-bottom: 0.5rem;"><i class="fas fa-balance-scale"></i></div>
+              <div style="color: #ffffff; font-weight: 600;">Multi-Scale</div>
+              <div style="color: #d1d5db; font-size: 0.9rem;">Atoms to systems</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; color: var(--orange); margin-bottom: 0.5rem;"><i class="fas fa-check-circle"></i></div>
+              <div style="color: #ffffff; font-weight: 600;">Validated</div>
+              <div style="color: #d1d5db; font-size: 0.9rem;">Experiment-informed</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-    
+
+    <!-- PUBLICATIONS -->
     <section id="publications" class="section">
       <div class="container">
         <div class="section-header">
           <h2>Selected Publications</h2>
-          <p>For a full list, please see my <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" style="color: var(--orange);">Google Scholar</a> profile.</p>
+          <p>High-impact research spanning electrochemistry, materials, and computational methods</p>
         </div>
 
-        <div class="pub-item">
-          <p class="pub-authors"><strong>Taqieddin A</strong>, Sarrouf S, Fahad ME, Busseler K, Alshawabkeh AN.</p>
-          <h3 class="pub-title">Electrochemical Ocean Iron Fertilization and Alkalinity Enhancement Approach Toward $CO_{2}$ Sequestration and $H_{2}$ Recovery</h3>
-          <p class="pub-venue">npj Ocean Sustainability, 3, 28 (2024).</p>
-        </div>
-        
-        <div class="pub-item">
-          <p class="pub-authors"><strong>Taqieddin A</strong>, Sarrouf S. Ehsan MF, Alshawabkeh AN.</p>
-          <h3 class="pub-title">Multiscale Insights into Structure-Porosity Interplay and Water Adsorption in Granular Activated Carbon for Enhanced Electrochemical Water Treatment</h3>
-          <p class="pub-venue">ACS ES&T Water, 5(6), 3439-3449 (2025).</p>
-        </div>
-        
-        <div class="pub-item">
-          <p class="pub-authors">Cho C, Kang P, <strong>Taqieddin A</strong>, Jing Y, Yong K, Kim MJ, Haque MF, Aluru NR, Nam S.</p>
-          <h3 class="pub-title">Electrical Ductility Enabled by Two-Dimensional Interlayer</h3>
-          <p class="pub-venue">Nature Electronics, 4(2), 126-133 (2021).</p>
-        </div>
-        
-        <div class="pub-item">
-          <p class="pub-authors">Choi C, Leem J, Kim MS, <strong>Taqieddin A</strong>, Cho C, et al.</p>
-          <h3 class="pub-title">Curved Neuromorphic Image Sensor Array Using a $MoS_{2}$-Organic Heterostructure Inspired by the Human Visual Recognition System</h3>
-          <p class="pub-venue">Nature Communications, 11(1), 1-9 (2020).</p>
-        </div>
-        
-        <div class="pub-item">
-          <p class="pub-authors">Hwang M, Heiranian M, Kim Y, You S, Juyoung Leem, <strong>Taqieddin A</strong>, et al.</p>
-          <h3 class="pub-title">Ultrasensitive Detection of Nucleic Acids Using Deformed Graphene Channel Field Effect Biosensors</h3>
-          <p class="pub-venue">Nature Communications, 11(1), 1-11 (2020).</p>
-        </div>
-        
-        <div class="pub-item">
-          <p class="pub-authors">Yao YC, <strong>Taqieddin A</strong>, Alibakhshi MA, Wanunu M, Aluru NR, Noy A.</p>
-          <h3 class="pub-title">Strong Electroosmotic Coupling Dominates Ion Conductance of 1.5 nm Diameter Carbon Nanotube Porins</h3>
-          <p class="pub-venue">ACS Nano, 13(11), 12851-12859 (2019).</p>
+        <div class="pub-list">
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Amir Taqieddin, Stephanie Sarrouf, Muhammad Fahad Ehsan, Akram N. Alshawabkeh
+            </p>
+            <p class="pub-title">
+              <strong>
+                Multiscale Insights into Structure–Porosity Interplay and Water Adsorption in Granular Activated Carbon for
+                Enhanced Electrochemical Water Treatment
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> ACS ES&amp;T Water, 2025
+            </p>
+            <div class="pub-links">
+              <a href="https://pubs.acs.org/doi/10.1021/acsestwater.5c00247" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12172041/" target="_blank" rel="noopener">
+                <i class="fas fa-unlock"></i> Open Access
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Maria del Mar Cerrillo Gonzalez, Amir Taqieddin, Stephanie Sarrouf, Nima Sakhaee, Juan Manuel Paz-García, Akram N. Alshawabkeh, Muhammad Fahad Ehsan
+            </p>
+            <p class="pub-title">
+              <strong>
+                Enhancing H₂O₂ Generation Using Activated Carbon Electrocatalyst Cathode: Experimental and
+                Computational Insights on Current, Cathode Design, and Reactor Configuration
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Catalysts, 2025
+            </p>
+            <div class="pub-links">
+              <a href="https://www.mdpi.com/2073-4344/15/2/189" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Stephanie Sarrouf, Amir Taqieddin, Muhammad Fahad Ehsan, Akram N. Alshawabkeh
+            </p>
+            <p class="pub-title">
+              <strong>
+                Engineering Electrode Polarity for Enhancing In Situ Generation of Hydroxyl Radicals Using Granular Activated Carbon
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Catalysts, 2024
+            </p>
+            <div class="pub-links">
+              <a href="https://www.mdpi.com/2073-4344/14/1/52" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Amir Taqieddin, Stephanie Sarrouf, Muhammad Fahad Ehsan, Ken Buesseler, Akram N. Alshawabkeh
+            </p>
+            <p class="pub-title">
+              <strong>
+                Electrochemical Ocean Iron Fertilization and Alkalinity Enhancement Approach Toward CO₂ Sequestration
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> npj Ocean Sustainability, 2024
+            </p>
+            <div class="pub-links">
+              <a href="https://www.nature.com/articles/s44183-024-00064-8" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Amir Taqieddin, Stephanie Sarrouf, Muhammad Fahad Ehsan, Akram N. Alshawabkeh
+            </p>
+            <p class="pub-title">
+              <strong>
+                New Insights on Designing the Next-Generation Materials for Electrochemical Synthesis of Reactive Oxidative
+                Species Towards Efficient and Scalable Water Treatment: A Review and Perspectives
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Journal of Environmental Chemical Engineering, 2023
+            </p>
+            <div class="pub-links">
+              <a href="https://pubmed.ncbi.nlm.nih.gov/38186676/" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10769459/" target="_blank" rel="noopener">
+                <i class="fas fa-unlock"></i> Open Access
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Michael T. Hwang, Mohammad Heiranian, Yerim Kim, Juyoung Leem, Amir Taqieddin, et al.
+            </p>
+            <p class="pub-title">
+              <strong>
+                Ultrasensitive Detection of Nucleic Acids Using Deformed Graphene Channel Field-Effect Biosensors
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Nature Communications, 2020
+            </p>
+            <div class="pub-links">
+              <a href="https://www.nature.com/articles/s41467-020-15330-9" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Amir Taqieddin, Yuxuan Liu, Akram N. Alshawabkeh, Michael R. Allshouse
+            </p>
+            <p class="pub-title">
+              <strong>
+                Computational Modeling of Bubbles Growth Using the Coupled Level Set—Volume of Fluid Method
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Fluids, 2020
+            </p>
+            <div class="pub-links">
+              <a href="https://www.mdpi.com/2311-5521/5/3/120" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Amir Taqieddin
+            </p>
+            <p class="pub-title">
+              <strong>
+                Review—Mathematical Formulations of Electrochemically Gas-Evolving Systems
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Journal of The Electrochemical Society, 2018
+            </p>
+            <div class="pub-links">
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6287757/" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Amir Taqieddin, Roya Nazari, Ljiljana Rajic, Akram N. Alshawabkeh
+            </p>
+            <p class="pub-title">
+              <strong>
+                Review—Physicochemical Hydrodynamics of Gas Bubbles in Two Phase Electrochemical Systems
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Journal of The Electrochemical Society, 2017
+            </p>
+            <div class="pub-links">
+              <a href="https://pubmed.ncbi.nlm.nih.gov/29731515/" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
         </div>
 
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" class="btn btn-primary">
+            <i class="fas fa-graduation-cap"></i> View Full Publication List
+          </a>
+        </div>
       </div>
     </section>
-    
-    <section id="patents" class="section section-alt">
+
+    <!-- MEDIA -->
+    <section id="media" class="section section-alt">
       <div class="container">
         <div class="section-header">
-          <h2>Patents &amp; Intellectual Property</h2>
-          <p>Developing novel systems for energy storage and climate technologies</p>
-        </div>
-        
-        <div class="pub-item">
-          <h3 class="pub-title">Vehicle Battery Management System</h3>
-          <p class="pub-venue">Co-inventor (Nissan North America)</p>
-          <p class="pub-status">US Patent Application 2025/0276610, filed Feb 29, 2024; publication date Sept 4, 2025.</p>
-        </div>
-        
-        <div class="pub-item">
-          <h3 class="pub-title">On-board Differential Control Methods for Extending Lifetime of Battery Cells</h3>
-          <p class="pub-status">Two patents filed.</p>
-        </div>
-        
-        <div class="pub-item">
-          <h3 class="pub-title">Offshore Mobile Platform for Electrochemical Ocean Iron Fertilization and Hydrogen Gas Generation</h3>
-          <p class="pub-status">US Patent App. 17/994,664 (2022).</p>
+          <h2>Talks, Videos &amp; Media</h2>
+          <p>Public-facing talks, explainers, and coverage of my work in batteries, water, and climate technologies.</p>
         </div>
 
-        <div class="pub-item">
-          <h3 class="pub-title">Physics-Informed Framework for Ultra-Early Life Prediction of Battery Performance</h3>
-          <p class="pub-status">Under preparation.</p>
+        <p class="media-intro">
+          These resources highlight how multiscale computation and AI translate into real-world systems, from 
+          ocean-based CO₂ sequestration and electrochemical water treatment to nanofluidic sensors and battery 
+          technology.
+        </p>
+
+        <h3 style="color:#ffffff; margin-top:0;"><i class="fas fa-video"></i> Featured Videos &amp; Talks</h3>
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon"><i class="fab fa-youtube"></i></div>
+            <h3>Electrochemical Ocean Iron Fertilization &amp; Alkalinity Enhancement</h3>
+            <p>
+              Animated explainer of a self-operating electrochemical system that combines ocean iron fertilization,
+              alkalinity enhancement, and hydrogen production for durable CO₂ sequestration.
+            </p>
+            <div class="pub-links">
+              <a href="https://www.youtube.com/watch?v=dSqFyCxSsPc" target="_blank" rel="noopener">
+                <i class="fas fa-play-circle"></i> Watch on YouTube
+              </a>
+              <a href="https://www.nature.com/articles/s44183-024-00064-8" target="_blank" rel="noopener">
+                <i class="fas fa-book"></i> Related npj Ocean Sustainability Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fab fa-youtube"></i></div>
+            <h3>Multiscale Simulations of Electronic and Fluidic Nanoscale Systems</h3>
+            <p>
+              Blue Waters Symposium talk on multiscale simulations for nanofluidics and electronic transport, using
+              petascale supercomputing to connect atomistic models and continuum descriptions.
+            </p>
+            <div class="pub-links">
+              <a href="https://www.youtube.com/watch?v=DhgKGpyGz4I" target="_blank" rel="noopener">
+                <i class="fas fa-play-circle"></i> Watch on YouTube
+              </a>
+              <a href="https://bluewaters.ncsa.illinois.edu/symposium-2019-schedule-descriptions.html" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Talk Abstract
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-chalkboard"></i></div>
+            <h3>AI in Battery Technology: From Laboratory Testing to Field Applications</h3>
+            <p>
+              Invited presentation in Cambridge EnerTech’s <em>AI for Energy Storage</em> program at the 
+              International Battery Seminar, highlighting physics-informed ML and digital twins for battery 
+              development and deployment.
+            </p>
+            <div class="pub-links">
+              <a href="https://www.internationalbatteryseminar.com/ai-for-energy-storage" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Session Page
+              </a>
+            </div>
+          </article>
         </div>
 
-        <div class="pub-item">
-          <h3 class="pub-title">Closed-Loop Cycle for Marine Nutrient Fertilization and Materials Recovery via Electrochemical Processes</h3>
-          <p class="pub-status">Provisional filed.</p>
+        <h3 style="color:#ffffff; margin-top:3rem;"><i class="fas fa-newspaper"></i> Media Coverage</h3>
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+            <h3>“Engineer the Ocean” Climate Story (WBUR/NPR)</h3>
+            <p>
+              Featured in a WBUR climate segment on ocean iron enrichment, demonstrating a prototype floating
+              electrochemical device that delivers a steady dose of iron for marine carbon removal experiments.
+            </p>
+            <div class="pub-links">
+              <a href="https://www.wbur.org/news/2023/10/12/climate-change-oceans-iron-algae" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Read the Article
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-university"></i></div>
+            <h3>PROTECT Trainee Spotlight (Northeastern)</h3>
+            <p>
+              Dissertation and trainee spotlight on multiscale computational design of carbon and iron materials for
+              electrochemical water treatment and the transition to industry roles in battery R&amp;D.
+            </p>
+            <div class="pub-links">
+              <a href="https://protect.sites.northeastern.edu/2023/08/14/project-4-trainee-amir-taqieddin-completes-ph-d/" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Read the Story
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-dna"></i></div>
+            <h3>Crumpled Graphene Cancer DNA Detector</h3>
+            <p>
+              Coverage of the <em>Nature Communications</em> work on deformed graphene biosensors for 
+              ultrasensitive nucleic acid detection, including commentary on bandgap engineering and flexible electronics.
+            </p>
+            <div class="pub-links">
+              <a href="https://www.nanotechnologyworld.org/post/crumpled-graphene-makes-ultra-sensitive-cancer-dna-detector" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Read the Article
+              </a>
+              <a href="https://www.nature.com/articles/s41467-020-15330-9" target="_blank" rel="noopener">
+                <i class="fas fa-book"></i> Related Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-water"></i></div>
+            <h3>Carbon Dioxide Removal Community Overview</h3>
+            <p>
+              Highlighted in carbon-removal community summaries discussing electrochemical ocean iron fertilization
+              and alkalinity enhancement as a combined marine carbon dioxide removal pathway.
+            </p>
+            <div class="pub-links">
+              <a href="https://carbondioxide-removal.eu/en/2024/05/20/nature-taqieddin-et-al-2024-electrochemical-ocean-iron-fertilization-and-alkalinity-enhancement-approach-toward-co2-sequestration/" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Overview
+              </a>
+            </div>
+          </article>
         </div>
-        
       </div>
     </section>
 
-    <section id="media" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Invited Talks &amp; Conferences</h2>
-          <p>Presenting research on AI in battery technology, carbon capture, and multiscale modeling</p>
-        </div>
-        
-        <div class="timeline-item">
-            <h3 class="role">AI for Energy Storage track, International Battery Seminar (2025)</h3>
-            <p>"AI in Battery Technology: From Laboratory Testing to Field Applications"</p>
-        </div>
-        
-        <div class="timeline-item">
-            <h3 class="role">Electrochemical Society Meeting (2024)</h3>
-            <p>"Design and Implementation of Iron-Based Electrochemical System for Simultaneous Carbon Capture and Hydrogen Gas Recovery"</p>
-        </div>
-        
-        <div class="timeline-item">
-            <h3 class="role">Electrochemical Society Meeting (2024)</h3>
-            <p>"Multi-Scale Development and Integration of Granular Activated Carbon Electrodes in Multiphase Electrochemical Systems"</p>
-        </div>
-        
-        <div class="timeline-item">
-            <h3 class="role">Frontera User Meeting (Jan 2021)</h3>
-            <p>"Multiscale Analysis of Nanomechanics"</p>
-        </div>
-        
-        <div class="timeline-item">
-            <h3 class="role">Blue Waters Symposium (Jun 2019)</h3>
-            <p>"Multiscale Simulations of Electronic and Fluidic Nanoscale Systems"</p>
-        </div>
-
-      </div>
-    </section>
-    
+    <!-- TEACHING -->
     <section id="teaching" class="section section-alt">
       <div class="container">
         <div class="section-header">
           <h2>Teaching &amp; Mentoring</h2>
-          <p>Committed to training the next generation of computational scientists and engineers</p>
-        </div>
-        
-        <div class="two-column">
-            <div class="icon-box">
-              <div class="icon-box-icon">
-                <i class="fas fa-chalkboard-teacher"></i>
-              </div>
-              <div class="icon-box-content">
-                <h3>Part-time Teacher and Tutor (Wyzant)</h3>
-                <p>
-                  Teaching undergraduate and graduate students in computational physics, finite element analysis, CFD, thermodynamics, and MATLAB. Highly reviewed (5.0/5.0 rating).
-                </p>
-              </div>
-            </div>
-            
-            <div class="icon-box">
-              <div class="icon-box-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="icon-box-content">
-                <h3>Research Mentoring (Northeastern)</h3>
-                <p>
-                  Mentored PhD and undergraduate students in research. Also mentored underrepresented students in the Research Opportunities for Undergraduates (ROUTES) program.
-                </p>
-              </div>
-            </div>
+          <p>Committed to excellence in education and fostering the next generation of researchers</p>
         </div>
 
+        <div class="grid">
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <h3>Teaching Experience</h3>
+            <ul>
+              <li>Mentored graduate and undergraduate students in computational methods and electrochemistry</li>
+              <li>Delivered research seminars on multiscale modeling, ML for materials, and ocean-based CDR</li>
+              <li>Supervised student projects in nanofluidics, battery modeling, and data-driven design</li>
+              <li>Guest lectures on transport phenomena and electrochemical engineering</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-book-open"></i></div>
+            <h3>Core Course Interests</h3>
+            <ul>
+              <li>Transport Phenomena &amp; Heat Transfer</li>
+              <li>Fluid Mechanics &amp; Thermodynamics</li>
+              <li>Numerical Methods &amp; Scientific Computing</li>
+              <li>Electrochemical Engineering</li>
+              <li>Energy Systems Design</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>Advanced/Elective Courses</h3>
+            <ul>
+              <li>Materials Informatics &amp; ML for Design</li>
+              <li>Multiscale Modeling of Electrochemical Systems</li>
+              <li>Computational Transport in Energy Devices</li>
+              <li>Nanofluidics &amp; 2D Materials</li>
+              <li>Sustainable Water &amp; Climate Technologies</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center;">
+          <a href="mailto:taqieddin.a@northeastern.edu?subject=Teaching%20Statement%20Request" class="btn btn-secondary">
+            <i class="fas fa-file-pdf"></i> Request Teaching Statement
+          </a>
+        </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="container">
         <div class="section-header">
-          <h2>Get in Touch</h2>
-          <p>I am always open to discussing new research, collaborations, and opportunities.</p>
+          <h2>Contact &amp; Collaboration</h2>
+          <p>Open to research collaborations, speaking opportunities, and academic &amp; industry partnerships</p>
         </div>
 
-        <div class="contact-links">
-          <a href="mailto:taqieddin.a@northeastern.edu" class="contact-link">
-            <i class="fas fa-envelope"></i> Email
-          </a>
-          <a href="https://www.linkedin.com/in/amirtaqi" target="_blank" class="contact-link">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" class="contact-link">
-            <i class="fas fa-graduation-cap"></i> Google Scholar
-          </a>
-          <a href="https://github.com/amirtaqiSP" target="_blank" class="contact-link">
-            <i class="fab fa-github"></i> GitHub
-          </a>
+        <div class="two-column">
+          <div>
+            <div class="icon-box">
+              <div class="icon-box-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="icon-box-content">
+                <h3>Email</h3>
+                <p>
+                  <a href="mailto:taqieddin.a@northeastern.edu" style="color: var(--orange);">
+                    taqieddin.a@northeastern.edu
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon-box-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="icon-box-content">
+                <h3>Location</h3>
+                <p>Boulder, Colorado, USA</p>
+              </div>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon-box-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="icon-box-content">
+                <h3>Phone</h3>
+                <p>(857) 204-0204</p>
+              </div>
+            </div>
+
+            <h3 style="color: var(--orange); margin-top: 2rem; margin-bottom: 1rem;">
+              <i class="fas fa-link"></i> Professional Networks
+            </h3>
+            <div class="contact-links">
+              <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" class="contact-link">
+                <i class="fas fa-graduation-cap"></i> Google Scholar
+              </a>
+              <a href="https://orcid.org/0000-0002-5743-7110" target="_blank" class="contact-link">
+                <i class="fab fa-orcid"></i> ORCID
+              </a>
+              <a href="https://github.com/amirtaqiSP" target="_blank" class="contact-link">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/amirtaqi" target="_blank" class="contact-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="https://www.researchgate.net/profile/Amir-Taqieddin" target="_blank" class="contact-link">
+                <i class="fab fa-researchgate"></i> ResearchGate
+              </a>
+              <a href="https://www.youtube.com/@AmirTaqieddin" target="_blank" class="contact-link">
+                <i class="fab fa-youtube"></i> YouTube
+              </a>
+            </div>
+          </div>
+
+          <aside class="highlight-card">
+            <h3><i class="fas fa-handshake"></i> Collaboration Interests</h3>
+            <p style="color: #d1d5db; margin-bottom: 1.5rem;">
+              I welcome opportunities for research collaboration, invited talks, and partnerships that connect 
+              computation, experiments, and deployment in energy and environmental technologies.
+            </p>
+            <ul>
+              <li><i class="fas fa-users"></i> Interdisciplinary research on batteries, water, and climate tech</li>
+              <li><i class="fas fa-industry"></i> Industry partnerships on AI-enabled battery design &amp; digital twins</li>
+              <li><i class="fas fa-water"></i> Collaborations on electrochemical water treatment &amp; ocean-based CO₂ removal</li>
+              <li><i class="fas fa-university"></i> Academic &amp; national-lab collaborations</li>
+              <li><i class="fas fa-microphone"></i> Invited seminars, panels &amp; short courses</li>
+              <li><i class="fas fa-graduation-cap"></i> Student mentorship &amp; joint supervision</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;"><i class="fas fa-file-alt"></i> Materials Available</h3>
+            <ul>
+              <li><a href="mailto:taqieddin.a@northeastern.edu?subject=CV%20Request"><i class="fas fa-file-pdf"></i> Curriculum Vitae</a></li>
+              <li><a href="mailto:taqieddin.a@northeastern.edu?subject=Research%20Statement%20Request"><i class="fas fa-flask"></i> Research Statement</a></li>
+              <li><a href="mailto:taqieddin.a@northeastern.edu?subject=Teaching%20Statement%20Request"><i class="fas fa-chalkboard-teacher"></i> Teaching Statement</a></li>
+            </ul>
+
+            <div style="margin-top: 1.8rem; text-align: center;">
+              <a href="mailto:taqieddin.a@northeastern.edu?subject=Collaboration%20Inquiry" class="btn btn-primary">
+                <i class="fas fa-handshake"></i> Start a Collaboration
+              </a>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
@@ -1420,70 +1696,110 @@
       <div class="footer-content">
         <div class="footer-section">
           <h4>Amir Taqieddin</h4>
-          <p style="color: #9ca3af;">Materials Informatics Scientist<br>Multiscale Computation &amp; AI</p>
+          <p style="color: #d1d5db;">
+            Materials Informatics Scientist<br>
+            PhD, Mechanical &amp; Industrial Engineering<br>
+            Computational Science, ML &amp; Electrochemistry
+          </p>
         </div>
+
         <div class="footer-section">
           <h4>Quick Links</h4>
           <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#research">Research</a></li>
             <li><a href="#publications">Publications</a></li>
-            <li><a href="#patents">Patents</a></li>
+            <li><a href="#media">Media</a></li>
+            <li><a href="#teaching">Teaching</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
+
         <div class="footer-section">
-          <h4>Find Me Online</h4>
+          <h4>Research Areas</h4>
           <ul>
-            <li><a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank">Google Scholar</a></li>
-            <li><a href="https://www.linkedin.com/in/amirtaqi" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/amirtaqiSP" target="_blank">GitHub</a></li>
-            <li><a href="https://www.researchgate.net/profile/Amir-Taqieddin" target="_blank">ResearchGate</a></li>
+            <li>Energy Storage &amp; Batteries</li>
+            <li>Materials Informatics</li>
+            <li>Water Treatment</li>
+            <li>Climate Technologies</li>
+            <li>Machine Learning</li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:taqieddin.a@northeastern.edu"><i class="fas fa-envelope"></i> Email</a></li>
+            <li><a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Scholar</a></li>
+            <li><a href="https://github.com/amirtaqiSP" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/amirtaqi" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
           </ul>
         </div>
       </div>
+
       <div class="footer-bottom">
-        &copy; 2025 Amir Taqieddin. All rights reserved.
+        <p>&copy; <span id="year"></span> Amir Taqieddin. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+          Computational Materials Science · Batteries · Water &amp; Climate Technologies
+        </p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Mobile nav toggle
-    document.addEventListener('DOMContentLoaded', () => {
-      const navToggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-      if (navToggle) {
-        navToggle.addEventListener('click', () => {
-          navLinks.classList.toggle('nav-open');
-        });
-      }
-      
-      // Close nav when a link is clicked
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-           navLinks.classList.remove('nav-open');
+    // Mobile nav toggle with improved UX
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-open");
+      });
+
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("nav-open");
         });
       });
-    });
 
-    // Particle animation
-    document.addEventListener('DOMContentLoaded', () => {
-      const particlesContainer = document.getElementById('particles');
-      if (particlesContainer) {
-        const particleCount = 50;
-        for (let i = 0; i < particleCount; i++) {
-          let particle = document.createElement('div');
-          particle.classList.add('particle');
-          particle.style.left = `${Math.random() * 100}vw`;
-          particle.style.animationDuration = `${Math.random() * 10 + 15}s`; // 15-25 seconds
-          particle.style.animationDelay = `${Math.random() * 10}s`;
-          particle.style.width = `${Math.random() * 2 + 1}px`;
-          particle.style.height = particle.style.width;
-          particle.style.opacity = Math.random() * 0.4;
-          particlesContainer.appendChild(particle);
+      document.addEventListener("click", (e) => {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove("nav-open");
         }
-      }
+      });
+    }
+
+    // Create animated particles
+    const particlesContainer = document.getElementById("particles");
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement("div");
+      particle.className = "particle";
+      particle.style.left = Math.random() * 100 + "%";
+      particle.style.top = Math.random() * 100 + "%";
+      particle.style.animationDelay = Math.random() * 20 + "s";
+      particle.style.animationDuration = (15 + Math.random() * 10) + "s";
+      particlesContainer.appendChild(particle);
+    }
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fade-in");
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll(".card, .icon-box, .pub-item, .stat-item, .flow-item").forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>
