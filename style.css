@@ -1,0 +1,297 @@
+/* Base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.6;
+  color: #111827;
+  background: #f9fafb;
+}
+
+/* Layout helpers */
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header & navigation */
+.site-header {
+  background: #111827;
+  color: #f9fafb;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.branding .name {
+  font-size: 1.5rem;
+  margin: 0 0 0.2rem;
+}
+
+.branding .tagline {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.branding .affiliation {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.site-nav {
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid #4b5563;
+  border-radius: 0.375rem;
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+}
+
+/* Sections */
+.section {
+  padding: 3.5rem 0;
+  background: #f9fafb;
+}
+
+.section-alt {
+  background: #ffffff;
+}
+
+.section h2 {
+  font-size: 1.6rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.4rem;
+}
+
+.section-intro {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+}
+
+/* Layout variations */
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Cards */
+.card,
+.highlight-card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1.3rem 1.4rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+}
+
+.highlight-card {
+  background: #f3f4f6;
+}
+
+/* Publications */
+.pub-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.pub-item {
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.pub-item:last-child {
+  border-bottom: none;
+}
+
+.pub-authors {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.pub-title {
+  margin: 0.2rem 0;
+}
+
+.pub-venue {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.pub-links a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #1d4ed8;
+}
+
+.pub-links a:hover,
+.pub-links a:focus-visible {
+  text-decoration: underline;
+}
+
+.pub-note {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* Buttons & links */
+a {
+  color: #1f2933;
+}
+
+a:hover,
+a:focus-visible {
+  color: #111827;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  background: #111827;
+  color: #f9fafb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: #1f2937;
+}
+
+/* Lists */
+.plain-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+
+.plain-list li + li {
+  margin-top: 0.4rem;
+}
+
+/* Profile photo (optional) */
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.site-footer {
+  background: #111827;
+  color: #9ca3af;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-note {
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #111827;
+    position: absolute;
+    top: 2.4rem;
+    right: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #4b5563;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .site-header {
+    position: static;
+  }
+}
