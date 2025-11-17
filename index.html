@@ -41,6 +41,17 @@ body {
   --card-hover: rgba(25, 33, 52, 0.95);
 }
 
+/* Global flowing background canvas */
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
 /* Layout helpers */
 .container {
   width: 100%;
@@ -176,7 +187,7 @@ body {
   position: relative;
   padding: 6rem 0 4rem;
   text-align: center;
-  background: linear-gradient(135deg, rgba(6, 42, 119, 0.4) 0%, rgba(52, 63, 102, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(6, 42, 119, 0.6) 0%, rgba(52, 63, 102, 0.45) 100%);
   border-bottom: 3px solid var(--orange);
   overflow: hidden;
 }
@@ -646,15 +657,12 @@ body {
   text-decoration: underline;
 }
 
-/* Stats section - all in one row (scrollable on small screens) */
+/* Stats section - 6 in one row on desktop, responsive below */
 .stats {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1.5rem;
   margin: 3rem 0;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
 }
 
 .stat-item {
@@ -664,8 +672,6 @@ body {
   border-radius: 16px;
   border: 2px solid rgba(237, 145, 34, 0.2);
   transition: all 0.3s ease;
-  flex: 0 0 auto;
-  min-width: 180px;
 }
 
 .stat-item:hover {
@@ -833,6 +839,18 @@ body {
 }
 
 /* Responsive design */
+@media (max-width: 1100px) {
+  .stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 968px) {
   .two-column {
     grid-template-columns: 1fr;
@@ -949,6 +967,9 @@ body {
   </style>
 </head>
 <body>
+  <!-- Global flowing background -->
+  <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+
   <header class="site-header">
     <div class="container header-inner">
       <div class="branding">
@@ -1755,6 +1776,58 @@ body {
           <p>Committed to excellence in education and fostering the next generation of researchers</p>
         </div>
 
+        <!-- Teaching Vision (from teaching statement) -->
+        <div style="margin-bottom: 3rem; background: var(--card-bg); border-radius: 16px; padding: 3rem; border: 2px solid rgba(237,145,34,0.35);">
+          <h3 style="color: var(--orange); text-align: center; font-size: 1.7rem; margin-bottom: 1.5rem;">
+            <i class="fas fa-lightbulb"></i> Teaching Vision
+          </h3>
+          <p style="color:#d1d5db; max-width: 900px; margin: 0 auto 1.5rem; text-align: center; line-height: 1.8;">
+            My teaching connects core <strong>mechanical and materials engineering</strong>—thermal-fluids, heat transfer, 
+            energy storage, and materials science—with modern <strong>data and machine learning (ML)</strong> tools. 
+            Students link structure, processing, and performance from microstructure and constitutive behavior to 
+            device-level response in battery packs, thermal networks, and electrochemical reactors. 
+            AI in my courses is always <strong>physics-informed, reproducible, and ethical</strong>, organized around a 
+            practical cycle: <em>Concept → Model → Code → Experiment → Communication</em>.
+          </p>
+
+          <div style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; margin-top:1.5rem;">
+            <div style="max-width:280px;">
+              <h4 style="color:#f9fafb; margin:0 0 0.5rem;"><i class="fas fa-bullseye"></i> Backward Design &amp; Mastery</h4>
+              <p style="color:#d1d5db; font-size:0.95rem; margin:0;">
+                I use backward design with clear outcomes in conceptual, mathematical, computational, and experimental 
+                skills. Low-stakes retrieval and specifications-based grading keep rigor while letting students iterate 
+                and improve.
+              </p>
+            </div>
+            <div style="max-width:280px;">
+              <h4 style="color:#f9fafb; margin:0 0 0.5rem;"><i class="fas fa-project-diagram"></i> Physics-Based Modeling with Data</h4>
+              <p style="color:#d1d5db; font-size:0.95rem; margin:0;">
+                Students derive governing equations (e.g., Navier–Stokes, transport in porous media), build simulators 
+                from pore to device scale, and construct physics-aware surrogates (PINNs, Gaussian processes) that respect 
+                constraints and units.
+              </p>
+            </div>
+            <div style="max-width:280px;">
+              <h4 style="color:#f9fafb; margin:0 0 0.5rem;"><i class="fas fa-users"></i> Active &amp; Inclusive Classrooms</h4>
+              <p style="color:#d1d5db; font-size:0.95rem; margin:0;">
+                Short mini-lectures alternate with think–pair–share, live coding, and whiteboard derivations. 
+                Structured teams and multiple modalities (analytical, computational, visual) support participation 
+                from a broad range of learners.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin-top:2rem; border-top:1px solid rgba(237,145,34,0.3); padding-top:1.5rem;">
+            <h4 style="color:#f9fafb; margin:0 0 0.5rem;"><i class="fas fa-universal-access"></i> Inclusive &amp; Accessible Learning</h4>
+            <p style="color:#d1d5db; font-size:0.95rem; margin:0;">
+              I commit to inclusive practices: accessible materials, flexible demonstrations (visual, analytical, and 
+              computational), transparent rubrics, and team norms that prevent inequitable task allocation. I routinely 
+              solicit anonymous feedback, adjust pacing and supports, and integrate societal context—safety, environmental 
+              impact, and ethics in AI-enabled design and control of mechanical and materials systems.
+            </p>
+          </div>
+        </div>
+
         <div class="grid">
           <div class="card">
             <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
@@ -1771,8 +1844,8 @@ body {
             <div class="card-icon"><i class="fas fa-book-open"></i></div>
             <h3>Core Course Interests</h3>
             <ul>
-              <li>Transport Phenomena &amp; Heat Transfer</li>
-              <li>Fluid Mechanics &amp; Thermodynamics</li>
+              <li>Thermodynamics, Fluid Mechanics, Heat Transfer</li>
+              <li>Transport Phenomena &amp; Energy Systems</li>
               <li>Numerical Methods &amp; Scientific Computing</li>
               <li>Electrochemical Engineering</li>
               <li>Energy Systems Design</li>
@@ -1787,7 +1860,7 @@ body {
               <li>Multiscale Modeling of Electrochemical Systems</li>
               <li>Computational Transport in Energy Devices</li>
               <li>Nanofluidics &amp; 2D Materials</li>
-              <li>Sustainable Water &amp; Climate Technologies</li>
+              <li>Physics-Informed ML for Thermo-Fluid &amp; Energy Systems</li>
             </ul>
           </div>
         </div>
@@ -1974,7 +2047,126 @@ body {
       });
     }
 
-    // Molecular dynamics-inspired hero background
+    // Global flowing background (dark navy with flowing particles)
+    (function () {
+      const canvas = document.getElementById("bg-canvas");
+      if (!canvas || !canvas.getContext) return;
+
+      const ctx = canvas.getContext("2d");
+      const NUM_PARTICLES = 80;
+      let particles = [];
+      let width = 0;
+      let height = 0;
+
+      function resize() {
+        const dpr = window.devicePixelRatio || 1;
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function initParticles() {
+        particles = [];
+        for (let i = 0; i < NUM_PARTICLES; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = 0.1 + Math.random() * 0.25;
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            r: 1.5 + Math.random() * 2.5,
+            phase: Math.random() * Math.PI * 2
+          });
+        }
+      }
+
+      function tick() {
+        ctx.clearRect(0, 0, width, height);
+
+        // subtle navy wash
+        ctx.fillStyle = "rgba(5, 12, 32, 0.65)";
+        ctx.fillRect(0, 0, width, height);
+
+        // flowing particles
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+
+          // gentle curl in velocity field
+          const flowStrength = 0.0008;
+          const cx = width * 0.5;
+          const cy = height * 0.4;
+          const dx = p.x - cx;
+          const dy = p.y - cy;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const curlX = -dy / dist;
+          const curlY = dx / dist;
+
+          p.vx += curlX * flowStrength;
+          p.vy += curlY * flowStrength;
+
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // wrap around edges
+          if (p.x < -50) p.x = width + 50;
+          if (p.x > width + 50) p.x = -50;
+          if (p.y < -50) p.y = height + 50;
+          if (p.y > height + 50) p.y = -50;
+
+          p.phase += 0.01;
+          const alpha = 0.15 + 0.1 * Math.sin(p.phase);
+
+          const isWarm = i % 2 === 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = isWarm
+            ? "rgba(237, 145, 34," + alpha + ")"
+            : "rgba(96, 165, 250," + (alpha * 0.8) + ")";
+          ctx.fill();
+        }
+
+        // faint connecting strokes to hint at graphs/ML
+        ctx.lineWidth = 0.5;
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const p1 = particles[i];
+            const p2 = particles[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const d2 = dx * dx + dy * dy;
+            const maxDist2 = 220 * 220;
+            if (d2 < maxDist2) {
+              const a = 0.06 * (1 - d2 / maxDist2);
+              ctx.strokeStyle = "rgba(148, 163, 184," + a + ")";
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      function init() {
+        resize();
+        initParticles();
+        tick();
+      }
+
+      window.addEventListener("resize", () => {
+        resize();
+        initParticles();
+      });
+
+      init();
+    })();
+
+    // Molecular dynamics-inspired hero background (hero-only)
     (function () {
       const canvas = document.getElementById("md-canvas");
       if (!canvas || !canvas.getContext) return;
@@ -2028,7 +2220,7 @@ body {
           ctx.fill();
         }
 
-        // Draw interaction links
+        // Draw interaction links (graph / ML-like connections)
         for (let i = 0; i < particles.length; i++) {
           for (let j = i + 1; j < particles.length; j++) {
             const p1 = particles[i];
