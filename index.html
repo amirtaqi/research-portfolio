@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Amir Taqieddin – Materials Informatics & Electrochemical Systems</title>
+  <title>Amir Taqieddin – Multiscale Simulation, ML, Thermal-Fluid & Electrochemical Systems</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Amir Taqieddin, PhD – Materials Informatics Scientist at Solid Power with 20+ publications and 1.3k+ citations across solid-state batteries, electrochemical water treatment, ocean-based CO2 sequestration, nanofluidics, and AI for materials and energy systems." />
+  <meta name="description" content="Amir Taqieddin, PhD – Materials Informatics Scientist at Solid Power with 20+ publications and 1.3k+ citations across batteries, electrochemical water treatment, ocean-based CO2 sequestration, nanofluidics, thermal-fluid systems, and AI for materials and energy." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
 /* Base styles with dark theme */
@@ -49,35 +49,6 @@ body {
   padding: 0 2rem;
 }
 
-/* Animated background particles */
-.particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: var(--orange);
-  border-radius: 50%;
-  opacity: 0.3;
-  animation: float 20s infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  25% { transform: translateY(-100px) translateX(50px); }
-  50% { transform: translateY(-200px) translateX(-30px); }
-  75% { transform: translateY(-100px) translateX(-60px); }
-}
-
 /* Header & navigation */
 .site-header {
   background: rgba(6, 42, 119, 0.95);
@@ -93,13 +64,16 @@ body {
 
 .header-inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
 }
 
 .branding {
-  flex: 1;
+  flex: 0 0 auto;
+  text-align: center;
 }
 
 .branding .name {
@@ -137,6 +111,9 @@ body {
   gap: 1.5rem;
   margin: 0;
   padding: 0;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -145,9 +122,12 @@ body {
   font-size: 0.95rem;
   font-weight: 500;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 999px;
   transition: all 0.3s ease;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .nav-links a:hover,
@@ -208,15 +188,25 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="%23ED9122" opacity="0.1"/></svg>');
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="%23ED9122" opacity="0.12"/></svg>');
   background-size: 50px 50px;
   opacity: 0.3;
   z-index: 0;
 }
 
+.md-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero h1 {
@@ -240,8 +230,30 @@ body {
   font-size: 1.1rem;
   color: #d1d5db;
   max-width: 800px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
   line-height: 1.8;
+}
+
+.hero-dynamic-line {
+  font-size: 1.05rem;
+  color: #e5e7eb;
+  max-width: 800px;
+  margin: 0.75rem auto 2rem;
+  line-height: 1.7;
+  min-height: 1.5em;
+}
+
+.hero-dynamic-prefix {
+  opacity: 0.9;
+}
+
+.hero-dynamic-text {
+  color: var(--orange);
+  font-weight: 600;
+  padding-right: 4px;
+  border-right: 2px solid var(--orange);
+  animation: blink 1s step-end infinite;
+  white-space: nowrap;
 }
 
 .cta-buttons {
@@ -333,7 +345,7 @@ body {
 /* Icon boxes */
 .icon-box {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -361,6 +373,80 @@ body {
 .icon-box-content p {
   margin: 0;
   color: #d1d5db;
+}
+
+/* Company logos strip */
+.company-strip {
+  margin-top: 2.5rem;
+}
+
+.company-strip-label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.company-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.company-logo {
+  flex: 1 1 220px;
+  display: flex;
+  align-items: center;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  background: var(--navy-soft-bg);
+  border: 1px solid rgba(237, 145, 34, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.company-logo-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-right: 0.8rem;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--orange) 0%, var(--amber) 100%);
+  color: #0b1120;
+}
+
+.company-logo-solidpower .company-logo-mark {
+  background: linear-gradient(135deg, #22c55e 0%, #a3e635 100%);
+}
+
+.company-logo-nissan .company-logo-mark {
+  background: linear-gradient(135deg, #f97316 0%, #facc15 100%);
+}
+
+.company-logo-technip .company-logo-mark {
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+}
+
+.company-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-name {
+  font-size: 0.95rem;
+  color: #f9fafb;
+}
+
+.company-role {
+  font-size: 0.8rem;
+  color: #9ca3af;
 }
 
 /* Cards */
@@ -746,15 +832,15 @@ body {
   .two-column {
     grid-template-columns: 1fr;
   }
-  
+
   .highlight-card {
     position: static;
   }
-  
+
   .research-flow {
     flex-direction: column;
   }
-  
+
   .flow-arrow {
     transform: rotate(90deg);
   }
@@ -764,22 +850,22 @@ body {
   .hero h1 {
     font-size: 2.5rem;
   }
-  
+
   .hero .subtitle {
     font-size: 1.1rem;
   }
-  
+
   .hero .description {
     font-size: 1rem;
   }
-  
+
   .header-inner {
-    flex-direction: column;
     align-items: flex-start;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
+  .branding {
+    text-align: left;
+    width: 100%;
   }
 
   .nav-toggle {
@@ -803,11 +889,11 @@ body {
   .nav-links.nav-open {
     display: flex;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
   }
-  
+
   .section {
     padding: 3rem 0;
   }
@@ -817,21 +903,21 @@ body {
   .container {
     padding: 0 1rem;
   }
-  
+
   .branding .name {
     font-size: 1.5rem;
   }
-  
+
   .hero h1 {
     font-size: 2rem;
   }
-  
+
   .section-header h2 {
     font-size: 2rem;
   }
 }
 
-/* Scroll animations */
+/* Scroll & type animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -846,17 +932,23 @@ body {
 .fade-in {
   animation: fadeInUp 0.6s ease-out;
 }
+
+@keyframes blink {
+  0%, 50% {
+    border-color: var(--orange);
+  }
+  50%, 100% {
+    border-color: transparent;
+  }
+}
   </style>
 </head>
 <body>
-  <!-- Animated particles background -->
-  <div class="particles" id="particles"></div>
-
   <header class="site-header">
     <div class="container header-inner">
       <div class="branding">
         <h1 class="name">Amir Taqieddin</h1>
-        <p class="tagline">Materials Informatics · Electrochemical Systems · Energy Storage</p>
+        <p class="tagline">Materials Informatics · Thermal-Fluid &amp; Electrochemical Systems · Energy Storage</p>
         <p class="affiliation">
           Materials Informatics Scientist, Solid Power · PhD, Mechanical &amp; Industrial Engineering
         </p>
@@ -867,12 +959,13 @@ body {
           <i class="fas fa-bars"></i>
         </button>
         <ul class="nav-links">
-          <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-          <li><a href="#research"><i class="fas fa-flask"></i> Research</a></li>
-          <li><a href="#publications"><i class="fas fa-file-alt"></i> Publications</a></li>
-          <li><a href="#media"><i class="fas fa-video"></i> Media</a></li>
-          <li><a href="#teaching"><i class="fas fa-chalkboard-teacher"></i> Teaching</a></li>
-          <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+          <li><a href="#about"><i class="fas fa-user"></i><span>About</span></a></li>
+          <li><a href="#research"><i class="fas fa-flask"></i><span>Research</span></a></li>
+          <li><a href="#publications"><i class="fas fa-file-alt"></i><span>Publications</span></a></li>
+          <li><a href="#patents"><i class="fas fa-certificate"></i><span>Patents</span></a></li>
+          <li><a href="#media"><i class="fas fa-video"></i><span>Media</span></a></li>
+          <li><a href="#teaching"><i class="fas fa-chalkboard-teacher"></i><span>Teaching</span></a></li>
+          <li><a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
         </ul>
       </nav>
     </div>
@@ -880,13 +973,18 @@ body {
 
   <!-- Hero Section -->
   <section class="hero">
+    <canvas id="md-canvas" class="md-canvas" aria-hidden="true"></canvas>
     <div class="container hero-content">
-      <h1>Multiscale Computation for Energy &amp; Materials</h1>
-      <p class="subtitle">Physics-Based Modeling · Machine Learning · Materials Informatics</p>
+      <h1>From Molecular Dynamics to Grid-Scale Energy Systems</h1>
+      <p class="subtitle">Multiscale Simulation · Thermal-Fluid &amp; Electrochemical Systems · Machine Learning</p>
       <p class="description">
-        Combining multiscale simulation, physics-informed AI, and experiments to accelerate 
-        the design of next-generation batteries, electrochemical water treatment systems, 
-        and ocean-based CO₂ removal technologies.
+        Integrating molecular simulation, thermal-fluid modeling, electrochemistry, and physics-informed AI to
+        accelerate the design of next-generation batteries, electrochemical water treatment systems, and
+        ocean-based CO₂ removal technologies.
+      </p>
+      <p class="hero-dynamic-line">
+        <span class="hero-dynamic-prefix">Simulating</span>
+        <span class="hero-dynamic-text" id="hero-dynamic-text"></span>
       </p>
       <div class="cta-buttons">
         <a href="#research" class="btn btn-primary">
@@ -908,7 +1006,7 @@ body {
       <div class="container">
         <div class="section-header">
           <h2>About</h2>
-          <p>Bridging fundamental science, scalable computation, and engineering innovation</p>
+          <p>Bridging thermal-fluid science, electrochemistry, scalable computation, and engineering innovation</p>
         </div>
 
         <div class="two-column">
@@ -922,8 +1020,9 @@ body {
                 <p>
                   <strong>Materials Informatics Scientist</strong> at Solid Power Operating Inc., leading AI-driven
                   digital twins and multiscale simulations for next-generation solid-state and lithium-ion batteries.
-                  Previously, I was a researcher at Nissan’s Advanced Technology Center – Silicon Valley, where I
-                  worked on materials informatics and battery management systems for electric vehicles.
+                  Previously, I worked at Nissan’s Advanced Technology Center – Silicon Valley on materials informatics
+                  and battery management systems for electric vehicles, and at <strong>Technip</strong> on
+                  thermal-fluid and process engineering for large-scale energy systems.
                 </p>
               </div>
             </div>
@@ -937,7 +1036,9 @@ body {
                 <p>
                   <strong>PhD in Mechanical &amp; Industrial Engineering</strong> from Northeastern University, where my
                   dissertation developed multiscale computational frameworks for carbon- and iron-based materials in
-                  electrochemical water treatment and ocean-based CO₂ removal. Prior work at the University of Illinois
+                  electrochemical water treatment and ocean-based CO₂ removal. My training is rooted in
+                  <strong>thermal-fluid sciences and electrochemical engineering</strong>, from gas-evolving bubble
+                  hydrodynamics to multiphase reactive flow modeling. Earlier work at the University of Illinois
                   at Urbana–Champaign focused on nanofluidics, interfacial transport, and 2D materials including 
                   graphene biosensors.
                 </p>
@@ -951,12 +1052,39 @@ body {
               <div class="icon-box-content">
                 <h3>Research Vision</h3>
                 <p>
-                  My research integrates <strong>multiscale physics-based modeling, machine learning, 
+                  My research integrates <strong>multiscale physics-based modeling, thermal-fluid science, machine learning, 
                   and materials informatics</strong> to solve critical challenges in energy storage, water treatment, 
                   and climate technologies. I develop computational frameworks that connect molecular-scale phenomena 
                   to device- and system-level performance, enabling predictive design and optimization—from ocean 
                   carbon removal reactors to solid-state batteries.
                 </p>
+              </div>
+            </div>
+
+            <div class="company-strip">
+              <p class="company-strip-label">Industry &amp; research experience</p>
+              <div class="company-logos">
+                <div class="company-logo company-logo-solidpower">
+                  <div class="company-logo-mark">SP</div>
+                  <div class="company-logo-text">
+                    <span class="company-name">Solid Power</span>
+                    <span class="company-role">Materials Informatics Scientist</span>
+                  </div>
+                </div>
+                <div class="company-logo company-logo-nissan">
+                  <div class="company-logo-mark">N</div>
+                  <div class="company-logo-text">
+                    <span class="company-name">Nissan ATC</span>
+                    <span class="company-role">Materials Informatics &amp; Battery R&amp;D</span>
+                  </div>
+                </div>
+                <div class="company-logo company-logo-technip">
+                  <div class="company-logo-mark">T</div>
+                  <div class="company-logo-text">
+                    <span class="company-name">Technip</span>
+                    <span class="company-role">Thermal-Fluid &amp; Process Engineering</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -967,15 +1095,16 @@ body {
               <li><strong>1,300+</strong> citations &amp; <strong>20</strong> peer-reviewed publications</li>
               <li>Lead author in <em>npj Ocean Sustainability</em>, <em>ACS ES&amp;T Water</em>, and <em>Catalysts</em></li>
               <li>Co-author on <em>Nature Communications</em>, <em>ACS Nano</em>, and MDPI <em>Fluids</em></li>
-              <li>Industry experience at Nissan ATC &amp; Solid Power</li>
-              <li>Co-inventor on an AI-enabled vehicle battery management system patent application</li>
+              <li>Industry experience at Technip, Nissan Advanced Technology Center, and Solid Power</li>
+              <li>Inventor on <strong>3</strong> patents / patent applications and <strong>6</strong> additional filings in progress</li>
             </ul>
 
             <h3 style="margin-top: 2rem;"><i class="fas fa-microscope"></i> Expertise</h3>
             <ul>
               <li>Multiscale computational modeling</li>
-              <li>Materials informatics &amp; physics-informed ML</li>
+              <li>Thermal-fluid sciences &amp; multiphase transport</li>
               <li>Electrochemical systems (water, CO₂, batteries)</li>
+              <li>Materials informatics &amp; physics-informed ML</li>
               <li>Battery materials, safety &amp; digital twins</li>
               <li>Nanofluidics &amp; 2D materials</li>
             </ul>
@@ -999,7 +1128,15 @@ body {
           </div>
           <div class="stat-item">
             <div class="stat-number">20</div>
-            <div class="stat-label">Publications</div>
+            <div class="stat-label">Peer-Reviewed Publications</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Patents &amp; Patent Applications</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Additional Filings in Progress</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">4</div>
@@ -1007,7 +1144,7 @@ body {
           </div>
           <div class="stat-item">
             <div class="stat-number">20+</div>
-            <div class="stat-label">Cross-disciplinary Collaborations</div>
+            <div class="stat-label">Cross-Disciplinary Collaborations</div>
           </div>
         </div>
       </div>
@@ -1018,7 +1155,7 @@ body {
       <div class="container">
         <div class="section-header">
           <h2>Research Program</h2>
-          <p>Multiscale ML and computation for electrochemical materials, batteries, and reactors</p>
+          <p>Multiscale ML and computation for electrochemical materials, batteries, reactors, and thermal-fluid systems</p>
         </div>
 
         <!-- Research Flow -->
@@ -1054,8 +1191,8 @@ body {
             <h3>Energy Storage &amp; Batteries</h3>
             <p>
               Developing digital twins and physics-informed ML for safe, fast-charging batteries. Integrating 
-              electro-chemo-mechanical and thermal modeling with real-time control strategies for solid-state 
-              and advanced lithium batteries.
+              electro-chemo-mechanical and <strong>thermal-fluid</strong> modeling with real-time control strategies 
+              for solid-state and advanced lithium batteries.
             </p>
             <ul>
               <li>Digital twins for battery management</li>
@@ -1095,7 +1232,7 @@ body {
             <p>
               Multiscale modeling of granular activated carbon (GAC) electrodes for reactive oxygen species 
               generation. Connecting molecular-scale water adsorption to reactor-level performance and 
-              pollutant removal efficiency.
+              pollutant removal efficiency in multiphase, flow-through systems.
             </p>
             <ul>
               <li>ROS generation mechanisms</li>
@@ -1176,11 +1313,11 @@ body {
             <i class="fas fa-lightbulb"></i> Research Philosophy
           </h3>
           <p style="text-align: center; font-size: 1.1rem; color: #d1d5db; max-width: 900px; margin: 0 auto 2rem; line-height: 1.8;">
-            Building computational frameworks that integrate <strong>multiscale physics-based modeling</strong> and 
-            <strong>data-driven machine learning</strong> to enable both forward performance prediction and inverse, 
-            target-driven design of electrochemical materials, devices, and processes for sustainable energy and 
-            environmental applications — from ROS-generating activated carbon electrodes and ocean iron fertilization 
-            reactors to AI-designed solid-state batteries.
+            Building computational frameworks that integrate <strong>multiscale physics-based modeling</strong>, 
+            <strong>thermal-fluid science</strong>, and <strong>data-driven machine learning</strong> to enable both 
+            forward performance prediction and inverse, target-driven design of electrochemical materials, devices, 
+            and processes for sustainable energy and environmental applications — from ROS-generating activated 
+            carbon electrodes and ocean iron fertilization reactors to AI-designed solid-state batteries.
           </p>
           <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
             <div style="text-align: center;">
@@ -1213,7 +1350,7 @@ body {
       <div class="container">
         <div class="section-header">
           <h2>Selected Publications</h2>
-          <p>High-impact research spanning electrochemistry, materials, and computational methods</p>
+          <p>High-impact research spanning electrochemistry, thermal-fluid science, materials, and computational methods</p>
         </div>
 
         <div class="pub-list">
@@ -1406,6 +1543,57 @@ body {
       </div>
     </section>
 
+    <!-- PATENTS -->
+    <section id="patents" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Patents &amp; Inventions</h2>
+          <p>Intellectual property at the intersection of electrochemistry, thermal-fluid science, and energy systems</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-water"></i></div>
+            <h3>Offshore Mobile Platform for Electrochemical Ocean Iron Fertilization &amp; Hydrogen Gas Generation</h3>
+            <p>
+              Floating electrochemical system that releases iron and alkalinity while producing hydrogen, enabling
+              controlled ocean iron fertilization and durable CO₂ sequestration with integrated energy recovery.
+            </p>
+            <p class="collab-note">
+              Co-invented with collaborators in oceanography and electrochemistry; directly connected to my work on
+              electrochemical ocean carbon removal and multiscale reactor modeling.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-vial"></i></div>
+            <h3>Enhancing H₂O₂ Generation Using Activated Carbon Electrocatalyst Cathodes</h3>
+            <p>
+              Flow-through reactor and cathode architectures that maximize hydrogen peroxide generation and reactive
+              oxygen species production for scalable electrochemical water treatment.
+            </p>
+            <p class="collab-note">
+              Bridges microstructure-resolved transport, multiphase electrochemistry, and reactor-scale optimization
+              for decentralized water treatment.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-fire-alt"></i></div>
+            <h3>Heat-Generating Materials &amp; Thermal Management Systems</h3>
+            <p>
+              Metal–hydrogen based heat-generating materials and systems for efficient, controllable heat delivery,
+              with applications in advanced energy, automotive, and thermal management technologies.
+            </p>
+            <p class="collab-note">
+              Connects my background in thermal-fluid sciences with energy systems and materials design, informing
+              battery and reactor thermal management strategies.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- MEDIA -->
     <section id="media" class="section section-alt">
       <div class="container">
@@ -1549,7 +1737,7 @@ body {
             <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
             <h3>Teaching Experience</h3>
             <ul>
-              <li>Mentored graduate and undergraduate students in computational methods and electrochemistry</li>
+              <li>Mentored graduate and undergraduate students in computational methods, thermal-fluid science, and electrochemistry</li>
               <li>Delivered research seminars on multiscale modeling, ML for materials, and ocean-based CDR</li>
               <li>Supervised student projects in nanofluidics, battery modeling, and data-driven design</li>
               <li>Guest lectures on transport phenomena and electrochemical engineering</li>
@@ -1623,16 +1811,6 @@ body {
               </div>
             </div>
 
-            <div class="icon-box">
-              <div class="icon-box-icon">
-                <i class="fas fa-phone"></i>
-              </div>
-              <div class="icon-box-content">
-                <h3>Phone</h3>
-                <p>(857) 204-0204</p>
-              </div>
-            </div>
-
             <h3 style="color: var(--orange); margin-top: 2rem; margin-bottom: 1rem;">
               <i class="fas fa-link"></i> Professional Networks
             </h3>
@@ -1699,7 +1877,7 @@ body {
           <p style="color: #d1d5db;">
             Materials Informatics Scientist<br>
             PhD, Mechanical &amp; Industrial Engineering<br>
-            Computational Science, ML &amp; Electrochemistry
+            Computational Science, ML, Thermal-Fluid &amp; Electrochemistry
           </p>
         </div>
 
@@ -1709,6 +1887,7 @@ body {
             <li><a href="#about">About</a></li>
             <li><a href="#research">Research</a></li>
             <li><a href="#publications">Publications</a></li>
+            <li><a href="#patents">Patents</a></li>
             <li><a href="#media">Media</a></li>
             <li><a href="#teaching">Teaching</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1740,7 +1919,7 @@ body {
       <div class="footer-bottom">
         <p>&copy; <span id="year"></span> Amir Taqieddin. All rights reserved.</p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">
-          Computational Materials Science · Batteries · Water &amp; Climate Technologies
+          Computational Materials Science · Thermal-Fluid &amp; Electrochemical Systems · Water &amp; Climate Technologies
         </p>
       </div>
     </div>
@@ -1772,17 +1951,146 @@ body {
       });
     }
 
-    // Create animated particles
-    const particlesContainer = document.getElementById("particles");
-    for (let i = 0; i < 30; i++) {
-      const particle = document.createElement("div");
-      particle.className = "particle";
-      particle.style.left = Math.random() * 100 + "%";
-      particle.style.top = Math.random() * 100 + "%";
-      particle.style.animationDelay = Math.random() * 20 + "s";
-      particle.style.animationDuration = (15 + Math.random() * 10) + "s";
-      particlesContainer.appendChild(particle);
-    }
+    // Molecular dynamics-inspired hero background
+    (function () {
+      const canvas = document.getElementById("md-canvas");
+      if (!canvas || !canvas.getContext) return;
+
+      const ctx = canvas.getContext("2d");
+      const NUM_PARTICLES = 70;
+      const MAX_SPEED = 0.5;
+      const LINK_DISTANCE = 140;
+      let particles = [];
+
+      function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function initParticles() {
+        const rect = canvas.getBoundingClientRect();
+        particles = [];
+        for (let i = 0; i < NUM_PARTICLES; i++) {
+          particles.push({
+            x: Math.random() * rect.width,
+            y: Math.random() * rect.height,
+            vx: (Math.random() * 2 - 1) * MAX_SPEED,
+            vy: (Math.random() * 2 - 1) * MAX_SPEED,
+            r: 1.8 + Math.random() * 1.7
+          });
+        }
+      }
+
+      function step() {
+        const rect = canvas.getBoundingClientRect();
+        ctx.clearRect(0, 0, rect.width, rect.height);
+        ctx.fillStyle = "rgba(10, 22, 40, 0.45)";
+        ctx.fillRect(0, 0, rect.width, rect.height);
+
+        // Update and draw particles
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x <= 0 || p.x >= rect.width) p.vx *= -1;
+          if (p.y <= 0 || p.y >= rect.height) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(251, 191, 36, 0.9)";
+          ctx.fill();
+        }
+
+        // Draw interaction links (graph / ML-like connections)
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const p1 = particles[i];
+            const p2 = particles[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < LINK_DISTANCE) {
+              const alpha = 1 - dist / LINK_DISTANCE;
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = "rgba(249, 115, 22, " + (alpha * 0.7) + ")";
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      function init() {
+        resizeCanvas();
+        initParticles();
+        step();
+      }
+
+      window.addEventListener("resize", () => {
+        resizeCanvas();
+        initParticles();
+      });
+
+      init();
+    })();
+
+    // Dynamic typing effect for hero line
+    (function () {
+      const el = document.getElementById("hero-dynamic-text");
+      if (!el) return;
+
+      const phrases = [
+        "molecular dynamics of electrolytes",
+        "porous-electrode thermal-fluid flows",
+        "electrochemical reactors for water and CO\u2082",
+        "battery cells and packs with AI-driven digital twins",
+        "microstructure-resolved transport in energy materials"
+      ];
+
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      const TYPING_SPEED = 90;
+      const DELETING_SPEED = 45;
+      const PAUSE_AT_END = 1500;
+      const PAUSE_AT_START = 400;
+
+      function type() {
+        const current = phrases[phraseIndex];
+
+        if (!deleting) {
+          charIndex++;
+          el.textContent = current.slice(0, charIndex);
+          if (charIndex === current.length) {
+            deleting = true;
+            setTimeout(type, PAUSE_AT_END);
+            return;
+          }
+        } else {
+          charIndex--;
+          el.textContent = current.slice(0, charIndex);
+          if (charIndex === 0) {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            setTimeout(type, PAUSE_AT_START);
+            return;
+          }
+        }
+
+        setTimeout(type, deleting ? DELETING_SPEED : TYPING_SPEED);
+      }
+
+      type();
+    })();
 
     // Scroll animations
     const observerOptions = {
