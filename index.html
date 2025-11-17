@@ -1490,6 +1490,25 @@ body {
             <p>Packs, grids, deployment</p>
           </div>
         </div>
+        <!-- Atomistic simulation clip: placed after the multiscale flow diagram -->
+        <div class="video-grid" style="margin-top: 2.25rem;">
+          <div class="video-card">
+            <h4>Atomistic View: Molecular Dynamics of Confined Fluids</h4>
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/v8W3S5e_3l4"
+                title="Molecular dynamics simulation"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <p>
+              Short molecular dynamics simulation showing how water and ions move at the nanoscale
+              in confined geometries. These atomistic insights feed directly into microstructure- and
+              reactor-scale models for electrochemical systems and nanofluidic devices.
+            </p>
+          </div>
+        </div>
 
         <!-- Graphical overview figures -->
         <figure class="research-figure">
@@ -2457,9 +2476,10 @@ body {
         </div>
 
         <div style="margin-top: 2.5rem; text-align: center;">
-          <a href="mailto:taqieddin.a@northeastern.edu?subject=Teaching%20Statement%20Request" class="btn btn-secondary">
-            <i class="fas fa-file-pdf"></i> Request Teaching Statement
-          </a>
+<a href="#" id="teaching-email-btn" class="btn btn-secondary">
+  <i class="fas fa-file-pdf"></i> Request Teaching Statement
+</a>
+
         </div>
       </div>
     </section>
@@ -2474,19 +2494,22 @@ body {
 
         <div class="two-column">
           <div>
-            <div class="icon-box">
-              <div class="icon-box-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="icon-box-content">
-                <h3>Email</h3>
-                <p>
-                  <a href="mailto:taqieddin.a@northeastern.edu" style="color: var(--orange);">
-                    taqieddin.a@northeastern.edu
-                  </a>
-                </p>
-              </div>
-            </div>
+<div class="icon-box">
+  <div class="icon-box-icon">
+    <i class="fas fa-envelope"></i>
+  </div>
+  <div class="icon-box-content">
+    <h3>Email</h3>
+    <p id="email-obfuscated" style="color: var(--orange);">
+      taqieddin.a [at] northeastern [dot] edu
+    </p>
+    <p style="font-size:0.9rem; color:#9ca3af; margin-top:0.4rem;">
+      To reduce spam, I avoid printing a clickable email address in plain text. You can reach me
+      via the collaboration button or the email link in the footer.
+    </p>
+  </div>
+</div>
+
 
             <div class="icon-box">
               <div class="icon-box-icon">
@@ -2601,7 +2624,7 @@ body {
         <div class="footer-section">
           <h4>Connect</h4>
           <ul>
-            <li><a href="mailto:taqieddin.a@northeastern.edu"><i class="fas fa-envelope"></i> Email</a></li>
+            <li><a href="#" id="footer-email-link"><i class="fas fa-envelope"></i> Email</a></li>
             <li><a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Scholar</a></li>
             <li><a href="https://github.com/amirtaqiSP" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
             <li><a href="https://www.linkedin.com/in/amirtaqi" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
@@ -2921,16 +2944,35 @@ body {
     document.querySelectorAll(".card, .icon-box, .pub-item, .stat-item, .flow-item").forEach(el => {
       observer.observe(el);
     });
-      (function () {
-    const user = "taqieddin.a";
-    const domain = "northeastern.edu";
-    const btn = document.getElementById("collab-email-btn");
-    if (btn) {
-      const subject = encodeURIComponent("Collaboration Inquiry");
-      btn.href = "mailto:" + user + "@" + domain + "?subject=" + subject;
-    }
-  })();
+
+    // Build email links in JS to avoid exposing a plain address in the HTML
+    (function () {
+      const user = "taqieddin.a";
+      const domain = "northeastern.edu";
+
+      // Collaboration button
+      const collabBtn = document.getElementById("collab-email-btn");
+      if (collabBtn) {
+        const subject = encodeURIComponent("Collaboration Inquiry");
+        collabBtn.href = "mailto:" + user + "@" + domain + "?subject=" + subject;
+      }
+
+      // Footer "Email" link
+      const footerEmailLink = document.getElementById("footer-email-link");
+      if (footerEmailLink) {
+        const subject = encodeURIComponent("Website Contact");
+        footerEmailLink.href = "mailto:" + user + "@" + domain + "?subject=" + subject;
+      }
+
+      // Teaching statement request button
+      const teachingBtn = document.getElementById("teaching-email-btn");
+      if (teachingBtn) {
+        const subject = encodeURIComponent("Teaching Statement Request");
+        teachingBtn.href = "mailto:" + user + "@" + domain + "?subject=" + subject;
+      }
+    })();
   </script>
+
   
 </body>
 </html>
