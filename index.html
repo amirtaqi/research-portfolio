@@ -391,12 +391,25 @@ body {
   margin-top: 2.25rem;
 }
 
+.company-strip-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
 .company-strip-label {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.8rem;
   color: #9ca3af;
-  margin-bottom: 0.8rem;
+}
+
+.company-strip-summary {
+  font-size: 0.85rem;
+  color: #9ca3af;
 }
 
 .company-logos {
@@ -408,7 +421,7 @@ body {
 }
 
 .company-logo {
-  flex: 1 1 220px;
+  flex: 1 1 240px;
   display: flex;
   align-items: center;
   padding: 0.8rem 1.1rem;
@@ -419,30 +432,47 @@ body {
 }
 
 .company-logo-mark {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 999px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   margin-right: 0.7rem;
   flex-shrink: 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.company-logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Fallback gradient badges if you don’t set logos yet */
+.company-logo-mark--fallback {
   background: linear-gradient(135deg, var(--orange) 0%, var(--amber) 100%);
   color: #0b1120;
 }
 
-.company-logo-solidpower .company-logo-mark {
+.company-logo-solidpower .company-logo-mark--fallback {
   background: linear-gradient(135deg, #22c55e 0%, #a3e635 100%);
 }
 
-.company-logo-nissan .company-logo-mark {
+.company-logo-nissan .company-logo-mark--fallback {
   background: linear-gradient(135deg, #f97316 0%, #facc15 100%);
 }
 
-.company-logo-technip .company-logo-mark {
+.company-logo-technip .company-logo-mark--fallback {
   background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+}
+
+.company-logo-ibm .company-logo-mark--fallback {
+  background: linear-gradient(135deg, #1d4ed8 0%, #60a5fa 100%);
 }
 
 .company-logo-text {
@@ -460,6 +490,67 @@ body {
   color: #9ca3af;
 }
 
+/* Academic & research affiliations strip */
+.affiliation-strip {
+  margin-top: 1.75rem;
+}
+
+.affiliation-strip-label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-bottom: 0.75rem;
+}
+
+.affiliation-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.affiliation-badge {
+  flex: 1 1 240px;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  background: var(--navy-soft-bg);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.affiliation-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.7rem;
+  background: #ffffff;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.affiliation-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.affiliation-name {
+  font-size: 0.95rem;
+  color: #f9fafb;
+}
+
+.affiliation-role {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
 /* Cards */
 .grid {
   display: grid;
