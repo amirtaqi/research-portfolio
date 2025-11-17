@@ -625,6 +625,77 @@ body {
   font-style: italic;
 }
 
+/* Research figures & graphics */
+.research-figure {
+  margin: 2.5rem auto;
+  max-width: 950px;
+  text-align: center;
+}
+
+.research-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(237, 145, 34, 0.35);
+  background-color: #020617;
+}
+
+.research-figure figcaption {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.research-figure-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 2.5rem auto;
+  max-width: 1100px;
+}
+
+.research-figure-grid figure {
+  flex: 1 1 280px;
+  max-width: 520px;
+  margin: 0;
+  text-align: center;
+}
+
+.research-figure-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(237, 145, 34, 0.3);
+  background-color: #020617;
+}
+
+.research-figure-grid figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.subsection-title {
+  font-size: 1.7rem;
+  text-align: center;
+  color: #ffffff;
+  margin: 3rem 0 0.8rem;
+}
+
+.subsection-lead {
+  max-width: 900px;
+  margin: 0 auto 1.4rem;
+  text-align: center;
+  color: #d1d5db;
+  font-size: 0.98rem;
+}
+
 /* Research flow diagram */
 .research-flow {
   display: flex;
@@ -846,6 +917,54 @@ body {
   text-align: center;
 }
 
+/* Simulation video grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+}
+
+.video-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(237, 145, 34, 0.25);
+}
+
+.video-card h4 {
+  margin: 0 0 0.7rem;
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+
+.video-card p {
+  margin: 0;
+  margin-top: 0.35rem;
+  color: #d1d5db;
+  font-size: 0.92rem;
+}
+
+.video-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 0.9rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  background: #020617;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* Contact links */
 .contact-links {
   display: flex;
@@ -1003,6 +1122,10 @@ body {
 
   .section-header {
     margin-bottom: 2.1rem;
+  }
+
+  .subsection-title {
+    font-size: 1.45rem;
   }
 }
 
@@ -1184,7 +1307,7 @@ body {
                 <!-- Solid Power -->
                 <a href="https://solidpowerbattery.com" class="company-logo company-logo-solidpower" target="_blank" rel="noopener">
                   <div class="company-logo-mark">
-                    <img src="SLDP_logo.jpg" alt="Solid Power logo">
+                    <img src="SLDP_logo.jpg" alt="Solid Power logo" loading="lazy">
                   </div>
                   <div class="company-logo-text">
                     <span class="company-name">Solid Power</span>
@@ -1195,7 +1318,7 @@ body {
                 <!-- Nissan Advanced Technology Center – Silicon Valley -->
                 <a href="https://www.nissan-global.com" class="company-logo company-logo-nissan" target="_blank" rel="noopener">
                   <div class="company-logo-mark">
-                    <img src="nissan.jpg" alt="Nissan logo">
+                    <img src="nissan.jpg" alt="Nissan logo" loading="lazy">
                   </div>
                   <div class="company-logo-text">
                     <span class="company-name">Nissan ATC – Silicon Valley</span>
@@ -1206,7 +1329,7 @@ body {
                 <!-- IBM -->
                 <a href="https://www.ibm.com" class="company-logo company-logo-ibm" target="_blank" rel="noopener">
                   <div class="company-logo-mark">
-                    <img src="IBM_logo.svg.png" alt="IBM logo">
+                    <img src="IBM_logo.svg.png" alt="IBM logo" loading="lazy">
                   </div>
                   <div class="company-logo-text">
                     <span class="company-name">IBM Research</span>
@@ -1217,7 +1340,7 @@ body {
                 <!-- Technip Energies -->
                 <a href="https://www.technipenergies.com" class="company-logo company-logo-technip" target="_blank" rel="noopener">
                   <div class="company-logo-mark">
-                    <img src="Technip.svg.png" alt="Technip Energies logo">
+                    <img src="Technip.svg.png" alt="Technip Energies logo" loading="lazy">
                   </div>
                   <div class="company-logo-text">
                     <span class="company-name">Technip</span>
@@ -1234,7 +1357,7 @@ body {
                 <!-- Northeastern University -->
                 <div class="affiliation-badge">
                   <div class="affiliation-mark">
-                    <img src="neu.png" alt="Northeastern University logo">
+                    <img src="neu.png" alt="Northeastern University logo" loading="lazy">
                   </div>
                   <div>
                     <div class="affiliation-name">Northeastern University</div>
@@ -1245,7 +1368,7 @@ body {
                 <!-- UIUC -->
                 <div class="affiliation-badge">
                   <div class="affiliation-mark">
-                    <img src="UIUC-Logo.jpg" alt="University of Illinois Urbana-Champaign logo">
+                    <img src="UIUC-Logo.jpg" alt="University of Illinois Urbana–Champaign logo" loading="lazy">
                   </div>
                   <div>
                     <div class="affiliation-name">University of Illinois at Urbana–Champaign</div>
@@ -1256,7 +1379,7 @@ body {
                 <!-- Jordan University of Science & Technology -->
                 <div class="affiliation-badge">
                   <div class="affiliation-mark">
-                    <img src="just.png" alt="Jordan University of Science and Technology logo">
+                    <img src="just.png" alt="Jordan University of Science and Technology logo" loading="lazy">
                   </div>
                   <div>
                     <div class="affiliation-name">Jordan University of Science &amp; Technology</div>
@@ -1368,6 +1491,25 @@ body {
             <p>Packs, grids, deployment</p>
           </div>
         </div>
+
+        <!-- Graphical overview figures -->
+        <figure class="research-figure">
+          <img src="Figure 1.jpg" alt="Overview of multiscale electrochemical systems, reactive oxygen species design, and closed-loop materials informatics for energy storage applications." loading="lazy">
+          <figcaption>
+            Graphical overview of my research: (a) multiscale electrochemical cell modeling from quantum to continuum scales, 
+            (b) design features and applications of reactive oxygen species systems, and (c) closed-loop materials informatics 
+            connected to energy storage devices such as post-lithium and redox-flow batteries.
+          </figcaption>
+        </figure>
+
+        <figure class="research-figure">
+          <img src="Figure_1.png" alt="Three interconnected projects: closed-loop materials informatics, hybrid physics-informed machine learning using real-world data, and onboard control systems using reduced-order models." loading="lazy">
+          <figcaption>
+            Three interconnected research thrusts: (1) closed-loop materials informatics for accelerated predictions and informed design, 
+            (2) fusion of real-world data into hybrid physics-informed ML for prognosis and health management, and 
+            (3) onboard control systems using reduced-order models for diagnosis and optimized operation.
+          </figcaption>
+        </figure>
 
         <div class="grid">
           <article class="card">
@@ -1535,9 +1677,81 @@ body {
           </div>
         </div>
 
+        <!-- Detailed thematic figures -->
+        <h3 class="subsection-title">Electrochemical Water Treatment &amp; Reactive Oxygen Species</h3>
+        <p class="subsection-lead">
+          Multiscale models link water adsorption and redox chemistry in granular activated carbon to 
+          continuum transport, bubble dynamics, and reactor-scale ROS generation for efficient pollutant removal.
+        </p>
+        <div class="research-figure-grid">
+          <figure>
+            <img src="ga_gac_multiscale.jpeg" alt="Multiscale schematic of molecular adsorption, continuum transport, bubble dynamics, and porosity-controlled ROS evolution leading to clean water." loading="lazy">
+            <figcaption>
+              Multiscale view of electrochemical water treatment: molecular adsorption and reactivity, 
+              continuum transport and bubble dynamics in porous carbon, and reactor-scale porosity effects on ROS generation.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="ga_ros_materials_review.jpg" alt="Design-application arc for reactive oxygen species systems, showing design features, ROS chemistries, and application domains including water treatment and energy." loading="lazy">
+            <figcaption>
+              Design space for reactive oxygen species systems, connecting design features and materials chemistries 
+              with applications in water treatment, sterilization, energy storage, and fuel cells.
+            </figcaption>
+          </figure>
+        </div>
+
+        <h3 class="subsection-title">Ocean-Based CO₂ Removal &amp; Marine Electrochemistry</h3>
+        <p class="subsection-lead">
+          Electrochemical platforms couple iron fertilization, alkalinity enhancement, and hydrogen production 
+          to enable controlled, monitorable marine carbon dioxide removal.
+        </p>
+        <figure class="research-figure">
+          <img src="ga_ocean_cdr.png" alt="Two-panel illustration of electrochemical ocean iron fertilization and floating platform for ocean alkalinity enhancement and hydrogen production." loading="lazy">
+          <figcaption>
+            Concepts for electrochemical ocean iron fertilization and ocean alkalinity enhancement: 
+            (a) mobile systems that release bioavailable iron into the upper ocean, and 
+            (b) floating electrochemical platforms that generate alkalinity and hydrogen while enhancing long-term CO₂ sequestration.
+          </figcaption>
+        </figure>
+
+        <h3 class="subsection-title">Hybrid Physics-Informed Machine Learning &amp; Digital Twins</h3>
+        <p class="subsection-lead">
+          Real-world data and physics-based models are fused into hybrid ML frameworks that learn hidden dynamics, 
+          accelerate PDE solvers, and enable prognosis and health management for electrochemical systems.
+        </p>
+        <div class="research-figure-grid">
+          <figure>
+            <img src="Figure_3.png" alt="Five-step hybrid physics-informed ML pipeline including data collection, feature engineering, fusion model development, physics-informed training, and prognosis." loading="lazy">
+            <figcaption>
+              Hybrid physics-informed ML pipeline: collecting real-world data, feature engineering, fusion of 
+              data-driven surrogates and differential operators, physics-informed training with PDE models, 
+              and deployment for digital-twin prediction and health management.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="ga_battery_ct.png" alt="Ground truth versus prediction for battery imaging, demonstrating the accuracy of neural surrogates." loading="lazy">
+            <figcaption>
+              Example application of hybrid surrogates: ML models predicting complex battery imaging outputs 
+              (ground truth vs prediction) to accelerate diagnostics and design.
+            </figcaption>
+          </figure>
+        </div>
+
+        <h3 class="subsection-title">Physics-Informed Control for Battery Safety &amp; BMS</h3>
+        <p class="subsection-lead">
+          Reduced-order thermal and electrochemical models are embedded inside differential physics-informed controllers 
+          to compute safe, optimal control actions for batteries and energy storage systems.
+        </p>
+        <figure class="research-figure">
+          <img src="Figure_4 (1).png" alt="Three-step diagram showing reduced-order models feeding a physics-informed neural-network controller for battery safety and security applications." loading="lazy">
+          <figcaption>
+            Differential physics-informed control: (1) reduced-order equivalent circuit and thermal models, 
+            (2) PINN-based controller that maps states to optimal responses with feedback, and 
+            (3) deployment in energy storage applications for battery safety and secure fast charging.
+          </figcaption>
+        </figure>
       </div>
     </section>
-
 
     <!-- PUBLICATIONS -->
     <section id="publications" class="section">
