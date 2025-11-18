@@ -1289,8 +1289,6 @@ body {
   }
 }
 
-    /* NEW ANIMATIONS - Add before closing </style> tag */
-
 /* Animated section headers */
 .section-header h2 {
   animation: slideInFromLeft 0.8s ease-out;
@@ -1342,6 +1340,22 @@ body {
   animation-delay: 1s;
 }
 
+/* Ensure sections don't overlap with header */
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Prevent hero parallax from causing issues */
+.hero {
+  will-change: transform, opacity;
+}
+
+/* Ensure main content stays above hero */
+main {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, #0a1628 0%, #162240 100%);
+}
 /* Enhanced card styles */
 .card::after {
   content: '';
