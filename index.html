@@ -120,11 +120,9 @@ body {
   padding: 1.25rem 0;
   position: sticky;
   top: 0;
-  right: -100%;
-  height: 100vh;
-  z-index: 1100;
-  padding-top: 6rem; /* Add top padding so links don't hide behind the close button/logo */
-  background: rgba(6, 42, 119, 0.98); /* Ensure opacity is high */
+  z-index: 1000; /* CHANGE FROM 100 to 1000 */
+  border-bottom: 2px solid var(--orange);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 .header-inner {
   display: flex;
@@ -236,7 +234,7 @@ body {
   color: var(--navy-deep);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .nav-toggle {
     display: inline-block;
   }
