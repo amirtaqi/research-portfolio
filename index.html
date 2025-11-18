@@ -1084,7 +1084,7 @@ body {
   color: #9ca3af;
 }
 
-/* Responsive design */
+/* REPLACE ENTIRE RESPONSIVE SECTION */
 @media (max-width: 1100px) {
   .stats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1102,26 +1102,52 @@ body {
 
   .research-flow {
     flex-direction: column;
+    gap: 1.5rem;
   }
 
   .flow-arrow {
     transform: rotate(90deg);
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
+  /* Hero fixes */
+  .hero {
+    padding: 3rem 0 2.5rem;
+  }
+
   .hero h1 {
-    font-size: 2.4rem;
+    font-size: 2rem;
+    line-height: 1.2;
   }
 
   .hero .subtitle {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .hero .description {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
+    padding: 0 1rem;
   }
 
+  .hero-dynamic-line {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+    min-height: 2.5em;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* Header fixes */
   .header-inner {
     align-items: flex-start;
   }
@@ -1131,34 +1157,34 @@ body {
     width: 100%;
   }
 
-  .nav-toggle {
-    display: inline-block;
+  /* Grid and layout fixes */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: rgba(6, 42, 119, 0.98);
-    position: absolute;
-    top: 3rem;
-    right: 0;
-    padding: 0.8rem;
-    border-radius: 12px;
-    border: 2px solid var(--orange);
-    min-width: 200px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
-  .nav-links.nav-open {
-    display: flex;
-  }
-
-  .cta-buttons {
+  .company-logos,
+  .affiliation-logos {
     flex-direction: column;
   }
 
+  .company-logo,
+  .affiliation-badge {
+    flex: 1 1 100%;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section spacing */
   .section {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
   }
 
   .section-header {
@@ -1167,6 +1193,43 @@ body {
 
   .subsection-title {
     font-size: 1.45rem;
+  }
+
+  /* Two column to single */
+  .two-column {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .highlight-card {
+    margin-bottom: 2rem;
+  }
+
+  /* Research figures */
+  .research-figure,
+  .research-figure-grid {
+    margin: 1.5rem auto;
+  }
+
+  /* Publications */
+  .pub-item {
+    padding: 1.2rem;
+  }
+
+  .pub-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Contact */
+  .contact-links {
+    justify-content: center;
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
@@ -1180,11 +1243,19 @@ body {
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .section-header h2 {
     font-size: 1.9rem;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 2rem;
   }
 }
 
